@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立即执行函数</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+</head>
+<body>
+    <script>
+        (function demo(txt){
+            console.log( txt)
+        }("这是一个函数"));
+
+        /*
+         * 立即执行函数
+         * 定义时在function结尾再加()，外层也加上，证明是个整体
+         */
+        var myDemo = (function() {
+            console.log("这是一个立即执行函数");
+        }());
+    </script>
+</body>
+</html>

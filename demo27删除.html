@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除元素 remove()  empty()方法</title>
+</head>
+<body>
+    <div class="demo">1我就是我，不一样的花朵</div>
+    <div class="demo1">2老鼠是适应能力最强的物种之一</div>
+    <div class="demo2">3蟑螂也是</div>
+    <div class="demo">4我就是我，不一样的花朵</div>
+    
+    <br>
+    <button class="btn1">删除</button>
+    <button class="btn2">empty</button>
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // remove() 删除标签和内容
+            $('.btn1').click(function(){
+            // $('.demo').remove();     // 同下
+                $('div').remove('.demo');
+            });
+            
+            // empty() 只删除内容，标签还在
+            $('.btn2').click(function(){
+                $('.demo1').empty();
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<style type="text/css">
+		*{margin: 0;padding: 0}
+		body{
+			margin: 1em 10%;
+			background: #ccc;
+			color: #333;
+			font-family: "微软雅黑";
+		}
+		h1{
+			text-shadow: 0 1px 1px #fff; 
+		}
+		a{
+			color: #c60;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		ul,li{list-style: none;}
+		ul{clear: both;}
+		li{
+			float: left;
+			padding: 1em;
+		}
+		img{
+			margin: 15px;
+			display: block;
+			clear: both;
+		}
+		</style>
+	</head>
+<body>
+
+    <h1>demo</h1>
+    <ul>
+    	<li>
+    		<a href="images/1.jpg" title="第一个图片" onclick="showPic(this);return false;">
+    			第一个图片
+    		</a>
+    	</li>
+    	<li>
+    		<a href="images/2.jpg" title="第二个图片" onclick="showPic(this);return false;">
+    			第二个图片
+    		</a>
+    	</li>
+    	<li>
+    		<a href="images/3.jpg" title="第三个图片" onclick="showPic(this);return false;">
+    			第三个图片
+    		</a>
+    	</li>
+    	<li>
+    		<a href="images/4.jpg" title="第四个图片" onclick="showPic(this);return false;">
+    			第四个图片
+    		</a>
+    	</li>
+    </ul>
+    <img src="images/1.jpg" alt="图片框" id="placeholder" width="200" height="200">
+    <p id="note">choose an image.</p>
+
+
+<script type="text/javascript">
+// JS图片库
+function showPic (whichPic) {
+	var source=whichPic.getAttribute("href");
+	var title=whichPic.getAttribute("title");
+	var placeholder=document.getElementById("placeholder");
+	var note=document.getElementById("note");
+	placeholder.setAttribute("src",source);
+	note.firstChild.nodeValue=title;
+
+}
+function counBodyChildren(){
+	var body_element=document.getElementsByTagName("body")[0];
+	var length=body_element.childNodes.length;
+	console.log(length);
+	console.log(body_element.nodeType);
+}
+window.onload=counBodyChildren();
+</script>
+</body>
+</html>

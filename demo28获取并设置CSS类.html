@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo28获取并设置CSS类</title>
+    <style>
+    .important
+    {
+    font-weight:bold;
+    font-size:xx-large;
+    }
+    .blue
+    {
+    color:blue;
+    }
+    </style>
+</head>
+<body>
+    <h1>这是一级标题</h1>
+    <h2>这是二级标题</h2>
+    <p>这是段落</p>
+    <p>另一个段落</p>
+    <div class="demo">这是一个非常重要的层</div>
+    <br>
+    
+    <div class="btn">添加样式</div>
+    <div class="btn2">删除样式</div>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.btn').click(function(){
+            $('h1,h2,p').addClass('blue');
+            $('div.demo').addClass('important blue');
+        });
+        
+        $('.btn2').click(function(){
+            $('div.demo').removeClass('blue');
+        });
+    })
+    
+    </script>
+</body>
+</html>

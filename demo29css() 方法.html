@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css()方法</title>
+    <style>
+        *{margin: 0;padding:0}
+        .demo{width: 300px;height: 300px;color: #595959;background: #f60;}
+    </style>
+</head>
+<body>
+    <div class="demo">这里有行字，不知道你能看到不</div>
+    <br>
+    <button class="btn">按钮啊亲</button>
+    <br>
+    <button class="btn2">修改</button>
+    
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.btn').click(function(){
+            alert('.DEMO的背景颜色：'+$('.demo').css('background-color') );
+        });
+        
+        // 修改
+        $('.btn2').click(function(){
+            $('.demo').css({'background-color':'#eee','font-size':'26px'});
+        })
+        
+        
+    })
+    </script>
+</body>
+</html>

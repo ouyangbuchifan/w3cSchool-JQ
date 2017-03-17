@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+	</head>
+<body>
+<input type="hidden">
+<div class="container">
+	<ul class="list">
+		<li data-id="0">技术部</li>
+		<li data-id="1">市场部</li>
+		<li data-id="2">客服部</li>
+	</ul>
+	<div class="summary">
+		
+	</div>
+	<br>
+	<div class="info">
+		
+	</div>
+</div>
+
+
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	var department=new Array();
+	department[0]="技术部";
+	department[1]="市场部";
+	department[2]="客服部";
+	var person=[
+		[0,'小竣',0,'男'],
+		[1,'王悦',0,'女'],
+		[2,'孟闯',0,'男'],
+		[6,'黄岩',2,'女'],
+		[7,'董丽莎',2,'女'],
+		[10,'陈琳',1,'男']
+	];
+
+	// 触发查找各部门下的员工
+	$('.list li').click(function(){
+		var data_id=$(this).data('id');
+		var length=person.length;
+		var code="";
+		for (var i = 0; i <length; i++) {
+			if (person[i][2]==data_id) {
+				code+='<li>'+person[i][1]+' '+person[i][3]+'</li>'
+			}
+		};
+		$('.summary').html(code);
+	});
+
+	// 返回选中的员工  这里有问题
+	// $('.summary').on('click',function(){
+	// 	var note=$(this).find('div').html();
+	// 	console.log(note);
+	// 	$('.info').html($(this).html());
+	// });
+	$('.summary').find('li').click(function(){
+		var note=$(this).html();
+		info.html(note);
+		console.log(123);
+	});
+})
+	
+
+</script>
+</body>
+</html>

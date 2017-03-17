@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="demo">
+                    <h3 id="test">请点击下面的按钮，将通过AJAX改变这段文本</h3>
+                    <button class="btn1" type="button">改变文本</button>
+                    <button class="btn2" type="button">只获取一部分内容</button>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="demo">
+                    <h4 id="test">我要替换掉这里的文字</h4>
+                    <button type="button" class="btn3 btn btn-primary">带上回调函数</button:button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.btn1').click(function(){
+                $('#test').load('/txt/demo.txt');
+            });
+            
+            // 只获取一部分内容
+            $('.btn2').click(function(){
+                $('#test').load('/txt/demo.txt p');
+            });
+            
+            // 带上回调函数
+            $('.btn3').click(function(){
+                $('#test').load('/txt/demo.txt p',function(responseTxt,statusTxt,xhr){
+                    if(statusTxt=='success'){
+                        alert('外部内容加载成功！');
+                    }if(statusTxt=='error'){
+                        alert('Error:'+xhr.status+':'+xhr.statusText);
+                    }
+                        
+                    
+                })
+            })
+            
+        })
+    </script>
+</body>
+</html>

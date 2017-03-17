@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>事件</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+				<h2>解决名称冲突</h2>
+				<p class="lead">
+					JQ以$符号作为JQ的简介方式。有些其他库或者函数也用$，为解决冲突。可以用 noConflict()来修改为自定义。<br>
+
+				</p>
+				<p>这是被测试段落</p>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script> 
+<script type="text/javascript">
+	var jq=jQuery.noConflict();
+	jq(document).ready(function () {
+		jq("p").click(function () {
+			jq(this).hide();
+		});
+	});
+</script>    
+</body>
+</html>

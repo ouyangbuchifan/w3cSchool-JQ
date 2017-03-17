@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>JQ插件 写入版权</title>
+    <link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.css" rel="stylesheet">
+</head>
+<body id="mybody">
+    
+	
+	<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script>
+    (function ($) {
+        $.fn.userCP = function(options){
+            var dft = {
+            	// 以下为插件默认属性及默认值
+            	cpBy: "欧阳不吃饭",	// 版权所有者
+            	url: "http://www.baidu.com",	// 地址
+            	size: "12px",
+            	align: "left"	// 版权文字对齐方式
+            }
+            var ops = $.extend(dft, options);	// 如果没有传参，就是默认值，否则以调用为准
+            var style = 'style = "font-size:' + ops.size + ';' + 'text-align:' + ops.align + ' "';
+            var cpTxt = '<p' + ' ' + style + '>此网站版权归&nbsp;&nbsp;<a target="_blank" href = " ' + ops.url + ' "> ' + ops.cpBy + '</a>&nbsp;&nbsp;所有</p>';	// 生成代码
+            $(this).append(cpTxt);
+        }
+    })(jQuery);
+    
+    
+//  $("#mybody").userCP();
+
+	$("#mybody").userCP({
+		align: 'center',
+		size: '12px'
+	});
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ 遍历</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    h1{text-align: center;}
+        
+    .demo *{display: block;color: #666;padding: 5px;margin: 15px;border: 1px solid #ccc;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JQ遍历－祖先</h1>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p class="lead">parent()  parents()  parentsUntil()</p>
+                <div class="demo">    <!-- 曾祖父级-->
+                    <ul>    <!-- 祖父级-->
+                        <li>   <!-- 父级-->
+                            <span>span</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="demo">
+                    <p>
+                        <span>span</span>
+                    </p>
+                </div>
+                <hr>
+                <div class="demo2">
+                    <ul>
+                        <li>
+                            <span>span</span>
+                            <button class="btn btn2 btn-primary">改变所有祖先级元素边框</button>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <hr>
+                <div class="demo3">
+                    <ul>    穿衣镜
+                        <li><span>span</span><button class="btn btn3 btn-danger">获取祖先级里ul元素</button></li>
+                    </ul>
+                </div>
+                <br><hr>
+                <div class="demo4">
+                    <ul>
+                        <li>
+                            <span>span</span>
+                            <button class="btn4 btn btn-success">返回两个祖先之间的元素</button>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        // 改变父级边框颜色
+        $('.demo span').parent().css('border','1px solid #f60');
+        
+        // 改变所有祖先元素的边框
+        $('.btn2').click(function(){
+            $('.demo2 span').parents().css('border','1px solid #f00');
+        });
+        
+        // 获取祖先级里的ul元素
+        $('.btn3').click(function(){
+            $('.demo3 span').parents('ul').css({'border':'1px solid #f00','color':'#f00'});
+        });
+        
+        // parentsUntil()
+        $('.btn4').click(function(){
+            $('.demo4 span').parentsUntil('div').css({'border':'1px solid #f00','background':'#eee','margin':'5px'});
+        })
+       
+    })
+    </script>
+</body>
+</html>

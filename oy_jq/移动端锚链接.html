@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端锚链接</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <style>
+        *{margin: 0;padding: 0;text-align: center;}
+        nav span{display: inline-block;width: 33.33%;}
+        #first{background: #f60;height: 500px;font-size: 4rem;}
+        #second{background: #f00;height: 200px;font-size: 4rem;}
+        #third{background: #369;height: 800px;font-size: 4rem;}
+    </style>
+</head>
+    <nav>
+        <span data-order="first">第一个</span><span data-order="second">第二个</span><span data-order="third">第三个</span>
+    </nav>
+    <div id="first">
+        A
+    </div>
+    <div id="second">
+        B
+    </div>
+    <div id="third">
+        C
+    </div>
+<body>
+<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script>
+        // 手机端锚链接
+        $("nav span").click(function(){
+            var anchor = $(this).data("order");
+            var anchor_scroll = $("#"+anchor).offset().top;
+            $("html body").animate({"scrollTop": anchor_scroll}, "fast");
+        });
+
+    </script>
+</body>
+</html>

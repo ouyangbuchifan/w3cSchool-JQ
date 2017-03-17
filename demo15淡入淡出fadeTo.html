@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	.demo,.demo1,.demo2{width:100px;height: 100px;margin: 10px;display: none;}
+	.demo{background: #eee;}
+	.demo1{background: #000;}
+	.demo2{background: #f60;}
+</style>
+</head>
+<body>
+    <div class="demo">
+    	1
+    </div>
+	<div class="demo1">
+		2
+	</div>
+	<div class="demo2">
+		3
+	</div>
+	<button type="button">提交</button>
+
+    <script src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+    	$("button").click(function(){
+    		// 显示出来，渐变成第二个数字的透明度
+    		$(".demo").fadeTo("slow",0.5);
+    		$(".demo1").fadeTo(3000,0.7);
+    		$(".demo2").fadeTo(4000,0.5);
+    	})
+    })
+    </script>
+</body>
+</html>

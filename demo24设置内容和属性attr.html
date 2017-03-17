@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>设置内容和属性attr()</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<style>
+		.link{color: #f00}
+		.link2{color: #000}
+		</style>
+	</head>
+<body>
+    <a href="http://www.baidu.com" class="link" target="_blank" title="百度">百度</a>
+    <button class="btn-change">修改</button>
+    <button class="btn-2">还原</button>
+    <br><br><br>
+
+
+    <a href="http://news.163.com" class="link2" title="网易" target="_blank">网易</a>
+    <button class="btn-3">回调函数</button>
+
+
+    <script src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+	    	$('.btn-change').click(function(){
+	    		$('.link').attr('href','http://www.163.com')
+	    		.text('网易')
+	    		.title('网易')
+	    	});
+
+	    	$('.btn-2').click(function(){
+	    		$('.link').attr('title','网易')
+	    		.attr('class','link2');
+	    	});
+
+
+	    	// 回调函数
+	    	$('.btn-3').click(function(){
+	    		$('.link2').attr('href',function(i,cont){
+	    			return cont+"/14/0909/16/A5NBHUB500011229.html";
+	    		})
+	    	})	
+
+
+	    })
+    </script>
+</body>
+</html>

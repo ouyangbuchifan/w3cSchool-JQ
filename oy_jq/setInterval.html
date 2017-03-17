@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body onload="init();">
+
+      <script language="javascript" type="text/javascript">
+        var count=0;
+        var a=false;
+        function init(){
+            setInterval(getJindu,100);	//每隔1秒执行函数getJindu
+        }
+        function getJindu(){
+            if(a){
+                document.getElementById("counter").innerHTML=count++;
+            }else{
+                document.getElementById("counter").innerHTML=count;
+            }
+        }
+        function stopTimer(sta){
+            a=sta;
+        }
+        </script>
+
+    <div id="counter"></div>
+    <input type="button" value="点击开始" onclick="stopTimer(true);"/><input type="button" value="点击停止" onclick="stopTimer(false);"/>
+</body>
+</html>

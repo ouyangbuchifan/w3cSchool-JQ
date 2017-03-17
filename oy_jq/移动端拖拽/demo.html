@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<style>
+	#inp{width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;}
+	</style>
+</head>
+<body>
+	<div id="inp"></div>
+	<div id="dome">123</div>
+	<script>
+
+ 		
+	     
+	    function touch (event){
+	        var event = event || window.event;
+	        
+	 
+	        switch(event.type){
+	            case "touchstart":
+	                console.log(event);
+		            var touches = event.touches[0];
+		            oW = touches.clientX - block.offsetLeft;
+		            oH = touches.clientY - block.offsetTop;
+	                break;
+	            case "touchend":
+	                document.removeEventListener("touchmove", defaultEvent, false);
+	                break;
+	            case "touchmove":
+	                var touches = event.touches[0];
+		            var oLeft = touches.clientX - oW;
+		            var oTop = touches.clientY - oH;
+		            if (oLeft < 0) {
+		                oLeft = 0;
+		            } else if (oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+		                oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+		            }
+		            if (oTop < 0) {
+		                oTop = 0;
+		            } else if (oTop > document.documentElement.clientHeight - block.offsetHeight) {
+		                oTop = (document.documentElement.clientHeight - block.offsetHeight);
+		            }
+		            block.style.left = oLeft + "px";
+		            block.style.top = oTop + "px";
+	                break;
+	        }
+	         
+	    }
+	    function defaultEvent(event) {
+            event.preventDefault();
+        }
+
+
+	var block = document.getElementById("inp");
+    block.addEventListener('touchstart',touch,false);
+    block.addEventListener('touchmove',touch,false);
+    block.addEventListener('touchend',touch,false);
+
+	// window.addEventListener('load',load,false);
+
+	</script>
+</body>
+</html>

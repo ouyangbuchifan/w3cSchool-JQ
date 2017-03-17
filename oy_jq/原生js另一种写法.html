@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生js的事件们</title>
+    
+</head>
+<body>
+    
+    <div class="demo" id="test">测试文本</div>
+    <div id="test2">mouseout触发</div>
+    
+    <script>
+        // 可以直接这么写
+        document.getElementById("test").onclick = function(e) {
+            console.log("触发测试");
+        }
+        
+        /*
+            onmouseout事件
+            dom["onmousemove"] 等同于 dom.onmousemove
+        */
+        document.getElementById("test2")["onmousemove"] = function() {
+            this.style.color = "#f60";
+            this.style.marginBottom = "60px";
+        }
+        // 这么写也可以
+        // document.getElementById("test2").onmousemove = function(){
+        //     console.log("onmousemove");
+        // }
+        
+        // this
+        var btn = document.getElementById("test2");
+        btn.onclick = function(e) {
+            console.log("这个id是" + this.id);
+        }
+        
+        
+        
+        var d=new Date(2016,2,10);
+        document.write(d.getDay());
+        //d=0~6(0代表星期天)。
+    </script>
+    
+</body>
+</html>

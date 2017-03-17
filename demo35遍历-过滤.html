@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历－过滤</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+   <div class="container">
+       <h1>遍历－过滤</h1>
+       <div class="row">
+           <div class="col-sm-12 col-md-12">
+               <p class="lead">
+                   first()  last()  eq()  filter()  not()
+               </p>
+               <hr>
+               <p class="lead">
+                   first() 在一组元素中选择第一个特定元素  <br>
+                   last() 一组元素中选择最后一个特定元素
+               </p>
+               <div class="demo1">
+                   <div>
+                       <p>我</p>
+                       <p>我</p>
+                   </div>
+                   <div>
+                       <p>你</p>
+                       <p>你</p>
+                       <p>你</p>
+                   </div>
+                   <input type="button" value="first()" class="btn btn1 btn-primary">
+                   <input type="button" value="last()" class="btn btn2 btn-primary">
+               </div>
+               <br><hr>
+               <p class="lead">
+                   eq() 将条件作为一个数组，然后获取指定下标的元素
+               </p>
+               <div class="demo2">
+                   <div>
+                       <p>她0</p>
+                       <p>她1</p>
+                       <p>她2</p>
+                       <p>她3</p>
+                   </div>
+                   <div>
+                       <input type="button" value="eq(1)" class="btn btn3 btn-success">
+                   </div>
+               </div>
+               <br><hr>
+               <p class="lead">
+                   filter() 在数组中匹配给定条件的所有元素
+               </p>
+               <div class="demo3">
+                   <p>我还不走呢你走不走啊</p>
+                   <p class="intro">你走不走啊</p>
+                   <p class="intro">你走不走啊</p>
+                   <div>
+                       <input type="button" value="filter()" class="btn4 btn btn-danger">
+                       <input type="button" value="not()" class="btn5 btn btn-default">
+                   </div>
+               </div>
+               
+               
+           </div>
+       </div>
+   </div>
+   
+   
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        
+        // first()
+        $('.btn1').click(function(){
+            $('div.demo1 div p').first().css({'border':'1px solid #ccc'});
+            
+        });
+        
+        // last()
+        $('.btn2').click(function(){
+            $('div.demo1 div p').last().css({'border':'1px solid #eee'});
+        })
+        
+        // eq()
+        $('.btn3').click(function(){
+            $('div.demo2 div p').eq(1).text('我要把字换掉啊');
+        })
+        
+        // filter()
+        $('.btn4').click(function(){
+            $('div.demo3 p').filter('.intro').css({'border':'1px solid #f00'});           
+        })
+        
+        // not()
+        $('.btn5').click(function(){
+            $('.demo3 p').not('.intro').css({'border':'1px solid #eee','background-color':'rgba(213,213,213,0.5)'})
+        })
+    })
+    </script>
+</body>
+</html>

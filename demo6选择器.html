@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JQ选择器</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+	div.container.oy{background: #eee;}
+</style>
+</head>
+<body>
+    <div class="container oy">
+    	<div class="row">
+    		<div class="col-sm-12 col-md-12">
+    			<h2>JQ选择器</h2>
+    			<div class="row">
+    				<div class="col-sm-12 col-md-10">
+		    			<table class="table table-striped table-bordered">
+		    				<thead>
+		    					<tr>
+		    						<th>语法</th>
+		    						<th>描述</th>
+		    					</tr>
+		    				</thead>
+		    				<tbody>
+		    					<tr>
+		    						<td>$(this)</td>
+		    						<td>选择当前HTML元素</td>
+		    					</tr>
+		    					<tr>
+		    						<td>$("p")</td>
+		    						<td>选择所有p元素</td>
+		    					</tr>
+		    					<tr>
+		    						<td>$("p.intro")</td>
+		    						<td>所有class="intro"的p元素</td>
+		    					</tr>
+		    					<tr>
+		    						<td>$(".intro")</td>
+		    						<td>所有class="intro"的元素</td>
+		    					</tr>
+		    					<tr>
+		    						<td>$("#intro")</td>
+		    						<td>所有id="intro"的元素</td>
+		    					</tr>
+		    					<tr>
+		    						<td>$("ul li:first")</td>
+		    						<td>每个ul里的第一个li元素</td>
+		    					</tr>
+		    					<tr>
+		    						<td>$("[href$='.jpg']")</td>
+		    						<td>所有以.jpg结尾的href属性</td>
+		    					</tr>
+		    					<tr>
+		    						<td>$("div#intro .head")</td>
+		    						<td>所有id="intro"的div下，class="head"的元素</td>
+		    					</tr>
+		    				</tbody>
+		    			</table>    				
+	    			</div>
+    				
+    			</div>
+
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>

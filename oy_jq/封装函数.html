@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>封装函数</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.loading{display: none}
+	</style>
+</head>
+<body>
+	<div class="loading">
+		正在加载中……
+	</div>
+	
+
+	<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 封装loading()
+		$.extend({
+			loading:function(){
+				$(".loading").show();
+			},
+			closeloading:function(){
+				$(".loading").hide();
+			}
+		});
+		$.loading();
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<style>
+            /*.demo{display: none}*/
+            .db{display: block;}
+            .de1{width: 100px;height: 100px;background: #eee;}
+            .list{border: 1px solid #ccc;background: #eee;margin-bottom: 15px;}
+            .list>dt{padding: 5px 0;border-bottom: 1px solid #ccc;line-height: 35px;}
+            .list>dd{padding: 15px}
+        </style>
+	</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+               <!-- start -->
+               <dl class="list">
+               		<dt>这里是标题</dt>
+               		<dd class="hides">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</dd>
+               		<dd>11111111111111111111111111111</dd>
+               </dl>
+
+               <dl class="list">
+               		<dt>这里是标题</dt>
+               		<dd class="hides">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</dd>
+               </dl>
+
+               <dl class="list">
+               		<dt>这里是标题</dt>
+               		<dd class="hides">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</dd>
+               </dl>
+
+               <dl class="list">
+               		<dt>这里是标题</dt>
+               		<dd class="hides">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</dd>
+               </dl>
+               <!-- end -->
+            </div>
+        </div>
+    </div>
+	
+
+
+<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.list>dt').click(function(){
+				$(this).next('.hides').slideToggle('fast');
+			})
+			
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>显示隐藏</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+	div.ex{background-color:#e5eecc;
+padding:7px;
+border:solid 1px #c3c3c3;}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+				<h2>显示隐藏</h2>
+
+				<!-- 第一个案例 -->
+				<div class="demo none">
+					<p>这是一个段落</p>
+					<button type="button" id="hide">隐藏</button>
+					<button type="button" id="show">显示</button>
+				</div>
+
+				<!-- 第二个案例 -->
+				<div class="demo2">
+					<h3>中国办事处</h3>
+					<div class="ex">
+						<button class="btn btn-primary none" type="button">隐藏</button>
+						<p>
+							联系人：张先生<br>
+							北三环中路111号<br>
+							北京
+						</p>
+					</div>
+					<h3>米国办事处</h3>
+					<div class="ex">					
+						<button class="btn btn-primary none" type="button">隐藏</button>
+						<p>
+							联系人：沈先生<br>
+							第五大街200号<br>
+							纽约
+						</p>
+						
+					</div>
+					<div id="show2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script> 
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		// 第一个案例
+		$("#hide").click(function () {
+			$(".demo.none").hide();
+		});
+		$("#show").click(function () {
+			$(".demo p").show();
+		});
+
+		// 第二个案例
+		$(".ex .none").click(function () {
+			$(this).parents(".ex").hide("slow");
+		});
+
+
+
+	});
+
+	
+</script>
+</body>
+</html>

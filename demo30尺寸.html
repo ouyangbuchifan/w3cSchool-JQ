@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>尺寸</title>
+    <style>
+    .demo{width: 300px;height: 100px;border: 2px solid #ccc;padding: 10px;margin: 15px;background: #eee;}
+    </style>
+</head>
+<body>
+    <p class="lead">
+        width()  height()  innerWidth()  innerHeight()  outerWidth()  outerHeight()
+    </p>
+    <div class="demo">
+        
+    </div>
+    <p>
+        width() 返回元素宽度，但是不包括margin,padding,border   <br>
+        height() 返回元素高度，同上  <br>
+        innerWidth() 返回元素宽度，包括padding  <br>
+        innerHeight() 返回元素高度，同上       <br>
+        outerWidth()  返回元素宽度，包括padding, border   <br>
+        outerHeight() 返回元素高度，同上    <br>
+        outerWidth(true) 返回元素宽度，包括 margin,padding,border  <br>
+        outerHeight(true) 返回元素高度，同上
+    </p>
+    <button class="btn">显示</button>
+    <button class="btn2">显示innerWidth()</button>
+    <button class="btn3">显示outWidth()</button>
+    <button class="btn4">显示outWidth(true)</button>
+    <hr>
+    <br><br>
+    
+    <button class="btn5">显示文档(document)和窗口(window)尺寸</button>
+    <br>
+    <button class="btn6">修改元素的宽高</button>
+    
+    
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var txt='';
+            $('.btn').click(function(){
+                txt+='width of demo:'+$('.demo').width()+'<br/>';
+                txt+='height of demo:'+$('.demo').height()+'<br/>';
+                $('.demo').html(txt);
+            });
+            
+            // innerWidth() innerHeight()
+            $('.btn2').click(function(){
+                txt+='innerWidth of demo'+$('.demo').innerWidth()+'<br/>';
+                txt+='innerHeight of demo'+$('.demo').innerHeight()+'<br/>';
+                $('.demo').html(txt);
+            });
+            
+            // outerWidth() outerHeight()
+            $('.btn3').click(function(){
+                txt+='outWidth of demo'+$('.demo').outerWidth()+'<br/>';
+                txt+='outHeight of demo'+$('.demo').outerHeight()+'<br/>';
+                $('.demo').html(txt);
+            });
+            
+            // outerwidth(true) outerHeight(true)
+            $('.btn4').click(function(){
+                txt+='outerWidth(true) of demo'+$('.demo').outerWidth(true)+'<br/>';
+                txt+='outerHeight(true) of demo'+$('.demo').outerHeight(true)+'<br/>';
+                $('.demo').html(txt);
+            });
+            
+            // 显示文档和窗口尺寸
+            $('.btn5').click(function(){
+                txt2='width of document'+$(document).width()+'<br/>';
+                txt2+='height of document'+$(document).height()+'<br/>';
+                txt2+='width of window'+$(window).width()+'<br/>';
+                txt2+='height of window'+$(window).height();
+                alert(txt2);
+            });
+            
+            // 修改元素的宽高
+            $('.btn6').click(function(){
+                $('.demo').width(500).height(500);
+            })
+            
+        })
+    </script>
+</body>
+</html>

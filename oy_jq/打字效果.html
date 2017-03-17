@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟打字效果</title>
+</head>
+<body>
+    <div class="container"></div>
+
+    <script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+    <script>
+        var s = '13934340312';
+        var con = $('.container');
+        var index = 0;
+        var length = s.length;
+        var tId = null;
+
+        function start(){
+            con.text('');
+            tId=setInterval(function(){
+                con.append(s.charAt(index));
+                if(index++ === length){
+                    clearInterval(tId);
+                    index = 0;
+                    
+                }
+            },100);
+        }
+
+        start();
+    </script>
+</body>
+</html>

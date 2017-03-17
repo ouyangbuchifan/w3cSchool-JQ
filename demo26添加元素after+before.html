@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>before after 函数</title>
+</head>
+<body>
+    <div class="demo">
+        内容
+    </div>
+    <br><br>
+    <button type="button" onclick="after()">在层后面添加内容</button>
+    
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        // after()与append()的区别 ： after和before添加的内容都在层外，append()和prepend()添加的内容在层内
+        function after(){
+            var text1='<b>I </b>';
+            var text2=$('<i></i>').text('love');
+            var text3=document.createElement('big');
+            text3.innerHTML=' jQuery  ';
+            $('.demo').after(text1,text2,text3);
+        }
+    </script>
+</body>
+</html>

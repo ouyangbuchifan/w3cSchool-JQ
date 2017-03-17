@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq遍历－后代</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    h1{text-align: center;}
+        
+    .demo *{display: block;padding: 5px;margin: 15px;border: 1px solid #ccc;}
+    </style>
+</head>
+<body>
+   <div class="container">
+       <h1>JQ遍历－后代</h1>
+       <p class="lead">
+           children()   返回被选元素所有直接子元素<br>
+           find()    返回被选元素的所有后代元素
+       </p>
+       <div class="demo">
+           <ul>
+               <li class="child">
+                   <span class="child" >span</span>
+                   <button class="btn1 btn btn-primary">
+                       children()
+                   </button>
+                   
+               </li>
+               <li class="child">
+                   2
+               </li>
+           </ul>
+       </div>
+       <div class="demo">
+           <p class="child">
+               <span>span</span>
+               <button class="btn2 btn btn-success">
+                       选中后代中指定类名的
+               </button>
+               
+           </p>
+       </div>
+       <button class="btn3 btn btn-default">
+           选中所有后代元素
+       </button>
+       <br>
+       <hr>
+       
+   </div>
+   
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.btn1').click(function(){
+            $('.demo').children().css({'border':'1px solid #f00'});
+        });
+        
+        // 选中指定后代元素
+        $('.btn2').click(function(){
+            // li.child 并不是.demo的直接子元素，所以它不会改变
+            $('div.demo').children('.child').css({'border':'1px solid #000','color':'#000'});
+        });
+        
+        // 选中所有后代元素
+        $('.btn3').click(function(){
+            $('div.demo').find('*').css({'border-radius':'50px'});          // 选中所有后代元素
+            $('div.demo').find('span').css({'border-radius':'5px','box-shadow':'2px 2px 2px #ccc'});
+        })
+        
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用substr格式化手机号</title>
+</head>
+<body>
+    
+    <script>
+    // 返回 139****0312
+    function formatMobile(mobile){
+        var mobile = mobile.toString();
+        var result = '';
+        result = mobile.substr(0,3) + '****' + mobile.substr(7,4);
+        console.log(result);
+    }
+    formatMobile('13934340312');
+
+    // 返回 139 3434 3122
+    function formatMobileSpace(mobile){
+        var mobile = mobile.toString();
+        var result = '';
+        result = mobile.substr(0,3) + ' ' + mobile.substr(3,4) + ' ' + mobile.substr(7,4);
+        console.log(result);
+    }
+    formatMobileSpace(13934340312)
+
+    </script>
+</body>
+</html>

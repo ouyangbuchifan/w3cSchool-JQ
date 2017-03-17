@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Document
+        </title>
+        <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.css"
+        rel="stylesheet">
+        <style>
+            ul,li,ol{list-style: none;} @font-face { font-family: 'iconfont'; src:
+            url('http://at.alicdn.com/t/font_1418197572_996583.eot'); /* IE9*/ src:
+            url('http://at.alicdn.com/t/font_1418197572_996583.eot?#iefix') format('embedded-opentype'),
+            /* IE6-IE8 */ url('http://at.alicdn.com/t/font_1418197572_996583.woff')
+            format('woff'), /* chrome、firefox */ url('http://at.alicdn.com/t/font_1418197572_996583.ttf')
+            format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('http://at.alicdn.com/t/font_1418197572_996583.svg#iconfont') format('svg');
+            /* iOS 4.1- */ } .iconfont{font-family:"iconfont"; font-size:16px;font-style:normal;}
+            .demo{margin: 30px}
+        </style>
+    </head>
+    
+    <body>
+        <div class="demo">
+            <i class="iconfont" data-tar="&#xe609;">
+                &#xe608;
+            </i>
+        </div>
+        <a href="javascript:;" class="btn btn-primary">
+            转换
+        </a>
+        <hr>
+        <br>
+        <script type='text/javascript' src='../jquery-1.9.1.min.js'>
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $(".btn").click(function() {
+                    var tar = $(".demo>i").data("tar");
+                    var i = $(".demo>i");
+
+                    i.data("tar", i.text());
+                    i.text(tar);
+                });
+
+            })
+        </script>
+    </body>
+
+</html>

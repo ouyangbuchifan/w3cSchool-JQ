@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <style>
+        html{font-size: 625%;}
+        body{font-size: .14rem;}
+        *{margin: 0;padding: 0;}
+        html,body{position: absolute;width: 100%;height: 100%;overflow: hidden;z-index: 10}
+        .item{position: absolute;z-index: -10}
+        .pagea,.pageb{display: block;font-size: .16rem;position: absolute;width: 100%;height: 100%;z-index: 100;}
+        
+        .pagea{transform: translateX(0);background: #eee;}
+        .pageb{transform: translateX(100%);background: #fff;}
+        .pagea_out{transform: translateX(-100%);transition:transform 250ms ease-out 0ms;z-index: 100}
+        .pagea_in{transform: translateX(0);transition:transform 250ms ease-out 0ms;z-index: 100}
+        .pageb_in{transform: translateX(0);transition:transform 250ms ease-out 0ms;z-index: 100}
+        .item_bg{background: #fff;width: 100%;height: 100%;position: absolute;z-index: 0}
+/*        .dom2_out{transform: translateX(100%);transition:transform 250ms ease-out 0ms;}*/
+    </style>
+</head>
+<body>
+    <div class="item_bg"></div>
+    <div class="item itemA pagea">
+        A页面
+        <em class="next" data-tar="itemB">下一页</em>
+        <p class="next" data-tar="itemC">第三页</p>
+    </div>
+    <div class="item itemB">
+        B页面
+        <em class="back" data-tar="itemA">返回</em>
+    </div>
+    <div class="item itemC">
+        C页面
+        <em class="back" data-tar="itemA">返回</em>
+    </div>
+    
+<script src="js/zepto.1.1.6.min.js"></script>
+<script src="js/touch.js"></script>
+<script>
+    $(function(){
+        // 滑动，
+        $('.next').tap(function(){
+            var tar=$(this).data('tar');
+            $(this).parent().addClass('pagea_out');
+            setTimeout(function(){
+                $('.'+tar).addClass('pageb_in');
+            },200);
+        });
+        // 返回
+        $('.back').tap(function(){
+            var tar=$(this).data('tar');
+            $('.'+tar).addClass('pagea_in').removeClass('pagea_out');
+            $(this).parent().removeClass('pageb_in');
+            setTimeout(function(){
+                $('.'+tar).removeClass('pagea_in');
+            },200);
+        });
+    });
+</script>
+</body>
+</html>

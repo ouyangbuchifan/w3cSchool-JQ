@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 作者： King 
+        // 链接：http://www.imooc.com/article/13893
+        // 来源：慕课网
+        // 本文原创发布于慕课网 ，转载请注明出处，谢谢合作！
+        function Foo() {
+            getName = function() {
+                console.log(1);
+            };
+            return this;    // 此处的this, 指的是window对象
+        }
+        Foo.getName = function() {
+            console.log(2);
+        };
+        Foo.prototype.getName = function() {
+            console.log(3);
+        };
+        var getName = function() {
+            console.log(4);
+        };
+
+        function getName() {
+            console.log(5);
+        }
+
+        Foo.getName()
+        getName();
+        Foo().getName();
+        getName();
+        new Foo.getName();
+        new Foo().getName();
+        new new Foo().getName();
+
+  
+
+
+        console.log(x); 
+        var x=1; 
+        function x(){}
+
+
+
+
+        function demo(){
+            document.write("我是孙");
+        }
+        var demo = function(){
+            document.write("gggg");
+        }
+        demo()
+    </script>
+</body>
+</html>

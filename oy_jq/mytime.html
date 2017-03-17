@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+<body>
+	<div class="container">
+		<p class="lead" id="time">3</p>
+	</div>
+
+    <script language="javascript" type="text/javascript">
+    	// 秒数倒计时
+	    var myTime = {
+	        start: function(ob, num) {
+	        	var timeNum = num*1;
+	            var t = setInterval(function() {
+	                if (timeNum > 0) {
+	                    timeNum--;
+	                    $(ob).text(timeNum);
+	                } else {
+	                    clearInterval(t);
+	                }
+	            },
+	            1000);
+	        },
+	    };
+	    myTime.start(mytime, 10);
+	    myTime.start(thisTime, 30);
+
+
+	    // 获取某个时间戳的时间
+	    var getNowTime=function(){	
+	        var nowTime=new Date(1454053830000);
+	        var nowYear=nowTime.getFullYear();
+	        var nowMonth=nowTime.getMonth()+1;
+	        var nowDay=nowTime.getDate();
+	        var nowHour=nowTime.getHours();
+	        var nowM=nowTime.getMinutes();
+	        var nowS=nowTime.getSeconds();
+	        var nowTimeTxt=nowYear+"-"+nowMonth+"-"+nowDay+" "+nowHour+":"+nowM+":"+nowS;
+	        return nowTimeTxt;
+	    }
+	    console.log( getNowTime() );
+    </script>
+</body>
+</html>

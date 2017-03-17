@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>设置内容和属性</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+    <p id="test1">这是段落1(测试回调函数点我)</p>
+    <p id="test2">这是<span>段落2</span>(测试回调函数html()点我)</p>
+    <p>
+    	input:
+    	<input type="text" id="test3" value="欧阳">
+    </p>
+
+    <br><br>
+	<button class="btn">text</button>
+	<button class="btn2">html</button>
+	<button class="btn3">val</button>
+
+
+    <script src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+	    	$('.btn').click(function(){
+	    		$('#test1').text('我改掉了段落1');
+	    	});
+	    	$('.btn2').click(function(){
+	    		$('#test2').html('<b>我改掉了段落2 </b>');
+	    	});
+	    	$('.btn3').click(function(){
+	    		$('#test3').val('欧阳不吃饭');
+	    	})
+
+
+	    	// 获取值的回调函数
+	    	$('#test1').click(function(){	    		
+	    		$('#test1').text(function(i,cont){
+	    			// 回调函数两个参数，第一个为元素在元素数组的下标，第二个为值
+	    			return('旧的文本：'+cont+'  新的文本：'+'  这里是新的文本'+'下标：'+i);
+	    		});
+	    	});
+	    	$('#test2').click(function(){
+	    		$('p').html(function(i,cont){
+	    			return('旧的文本：'+cont+' 新的文本：'+'我替换了<span>段落2</span>以回调函数的方式'+'  下标：'+i);
+	    		})
+	    	})
+
+
+	    })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+	<div class="text">123456</div>
+	<a href="javascript:;" class="btn">按钮</a>
+	
+	<script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.js"></script>
+    <script type="text/javascript">
+    $('.btn').click(function () {
+    	if(!$('.text').attr('is_hides')){
+    		console.log('没有');
+    		$('.text').attr('is_hides',1);
+    	}else{
+    		$('.text').removeAttr('is_hides');
+    	}
+    })
+    </script>
+</body>
+</html>

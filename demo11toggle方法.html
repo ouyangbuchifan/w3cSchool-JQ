@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<style type="text/css">
+			dl{border: 1px solid #ccc;background: #eee;}
+			dt{line-height: 35px;border-bottom: 1px solid #ccc;}
+			dd{line-height: 35px;}
+		</style>
+	</head>
+<body>
+    <dl class="demo">
+    	<dt>点击显示隐藏</dt>
+    	<dd>这里是要被隐藏的内容</dd>
+    </dl>
+    <dl class="demo">
+    	<dt>点击显示隐藏</dt>
+    	<dd>这里是要被隐藏的内容</dd>
+    </dl>
+	
+    <script src="jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+    	$(".demo dt").click(function(){
+    		$(".demo dd").toggle();
+    	});
+
+    });
+    </script>
+</body>
+</html>

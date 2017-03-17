@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>JSON</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+<h3>博客园JSON教程</h3>
+<p>
+	地址：http://www.cnblogs.com/zhangji/archive/2011/09/02/2163811.html
+</p>
+<hr>
+<h4>示例一：JSON对象</h4>
+<script type="text/javascript">
+console.log("示例一：JSON对象");
+var china={
+	beijing:{name:"北京",area:"16000",haidian:{name:"海滨区",user:'孟闯'}},
+	shanghai:{name:"上海",area:"10000",minhang:{name:"闵行区"}}
+};
+console.log(china.beijing.name);
+console.log(china.shanghai.minhang.name);
+
+console.log("*********************************");
+</script>
+
+
+<h4>示例二：JOSN数组</h4>
+<script>
+console.log("示例二：JOSN数组");
+var city=[["北京市"],["上海市"],["合肥市","芜湖市","蚌埠市"]];
+console.log(city[1]);
+console.log(city[2][1]);
+
+console.log("*********************************");
+</script>
+
+<h4>示例三：遍历JSON对象</h4>
+<script>
+console.log("示例三：遍历JSON对象");	
+var zhongguo={
+	provinces:[
+		{name:"北京",cities:[{name:"北京市",quxian:["海滨区","朝阳区","大兴区","东城区","西城区"]}]},
+		{name:"安徽",cities:[
+			{name:"芜湖市",quxian:["繁昌市","芜湖县","南陵县","三山区"]},
+			{name:"全肥市",quxian:["肥西县","蜀山县","庐阳区"]}
+			]
+		},
+	]	
+};	
+var str = "中国：{\n"; 
+for(var i = 0; i < zhongguo.provinces.length; i++) {
+  if(zhongguo.provinces[i].cities != null){
+		str += zhongguo.provinces[i].name + "{";
+		for(var j = 0; j < zhongguo.provinces[i].cities.length; j++)
+		{
+			if(zhongguo.provinces[i].cities[j] != null){
+				str += zhongguo.provinces[i].cities[j].name + "{";
+				for(var k = 0; k < zhongguo.provinces[i].cities[j].quxian.length; k++){
+					str += zhongguo.provinces[i].cities[j].quxian[k];
+					if(k != zhongguo.provinces[i].cities[j].quxian[k].length - 1){ 
+						str += ","; 
+					} 
+				} 
+				str += "}"; 
+			}
+			
+		} 	
+				str += "}\n"; 
+	}
+}		
+str += "}"; 
+console.log(str); 
+
+</script>
+</body>
+</html>

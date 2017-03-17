@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .demo{height: 1000px;}
+        li{color: #333;}
+        li:nth-child(2){color: #f00}
+    </style>
+   
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="demo"></div>
+    <div id="demo">ddd</div>
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $('#demo').click(function(){
+        window.scroll(0,0);
+    })
+    </script>
+</body>
+</html>

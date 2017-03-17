@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        .demo{height: 100px;overflow: auto;}
+        table{border-collapse: collapse;height: 100%;overflow: auto;}
+        table tr td{padding: 10px;border: 1px solid #eee;}
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    
+    <div class="demo">
+        <em>123</em>
+        <span>456</span>
+    </div>
+    <script type="text/javascript">
+    // end()向上返回一级，如果需要两级，就是  end().end()
+    $('.demo').find('em').css('color','#f00').end().find('span').css('margin-left','100px');
+    </script>
+</body>
+</html>

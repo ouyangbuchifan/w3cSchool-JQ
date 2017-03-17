@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        html{font-size: 625%;}
+        body{font-size: .14rem;}
+        .dn{display: none;}
+        em{font-style: normal;}
+        
+        .modal_bg {
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.modal_confirm {
+	width: 60%;
+	margin: .5rem 20% 0;
+	color: #fff;
+	background: rgba(0, 0, 0, 1);
+	padding: .1rem;
+	border-radius: .03rem;
+	display: none;
+	-webkit-animation-name: modalIn;
+	/*动画名称*/
+	-webkit-animation-duration: 300ms;
+	/*动画持续时间*/
+	-webkit-animation-iteration-count: 1;
+	/*动画次数*/
+	-webkit-animation-delay: 0s;
+	/*延迟时间*/
+}
+.modal {
+	width: 60%;
+	margin: .5rem 20% 0;
+	color: #fff;
+	background: rgba(0, 0, 0, 1);
+	padding: .1rem;
+	border-radius: .03rem;
+	display: none;
+	-webkit-animation-name: modalIn;
+	/*动画名称*/
+	-webkit-animation-duration: 300ms;
+	/*动画持续时间*/
+	-webkit-animation-iteration-count: 1;
+	/*动画次数*/
+	-webkit-animation-delay: 0s;
+	/*延迟时间*/
+}
+/*显示modal动画*/
+	@-webkit-keyframes modalIn {
+    0% {
+      opacity: 0;
+      /*初始状态 透明度为0*/
+    }
+    50% {
+      opacity: 0;
+      /*中间状态 透明度为0*/
+    }
+    100% {
+      opacity: 1;
+      /*结尾状态 透明度为1*/
+
+    }
+} 
+/*隐藏modal动画*/
+	@-webkit-keyframes modalOut {
+      0% {
+      opacity: 1;
+      /*初始状态 透明度为1*/
+    }
+    50% {
+      opacity: 1;
+      /*中间状态 透明度为1*/
+    }
+    100% {
+      opacity: 0;
+      /*结尾状态 透明度为0*/
+
+    }
+} 
+.modal_in {
+	-webkit-animation-name:modalIn;
+}
+.modal_out {
+	-webkit-animation-name:modalOut;
+}
+.modal_confirm {
+	overflow: hidden;
+	text-align: justify
+}
+.modal_confirm em {
+	font-size: .12rem;
+	background: #fff;
+	padding: .03rem;
+	border: .01rem solid #ccc;
+	border-radius: .03rem;
+}
+.modal_confirm .confirm_action {
+	float: right;
+	margin-top: .1rem;
+	color: #333;
+}
+.modal_confirm .confirm {
+	background: #55a23a;
+	color: #fff;
+	border-color: #55a23a
+}
+    </style>
+</head>
+
+<body>
+    <h3 data-tip="这里是内容">按钮</h3>
+    <h4>确定</h4>
+    <h3 data-tip="这里是提示内容">显示内容</h3>
+    <div class="modal_bg"></div>
+    <div class="modal">
+        
+    </div>
+    <div class="modal_confirm">
+        <form action="javascript:;" class="confirm_form">
+        <input type="text" placeholder="请输入内容">
+        <div class="confirm_action">
+            <em class="back">返回</em>
+            <em class="confirm">确定</em>
+        </div>
+        </form>
+    </div>
+
+
+    <script type="text/javascript" src="zepto.1.1.6.min.js"></script>
+    <script type="text/javascript" src="touch.js"></script>
+    <script type="text/javascript">
+ 
+        var ttx={
+            alert:function(text){
+                $('.modal').addClass('modal_in')
+                $('.modal_bg').show();
+                $('.modal').show().text(text);
+                setTimeout(function () {
+                    $('.modal').removeClass('modal_in').hide();
+                    $('.modal_bg').hide();
+                }, 2000)
+            },
+            confirm:function(){
+                $('.modal_confirm').addClass('modal_in')
+                $('.modal_bg').show();
+                $('.modal_confirm').show();
+                // 确定按钮
+                $('.confirm_action .confirm').tap(function(){
+                    if(1==1){
+                        $('.confirm_form').submit();
+                        $('.modal_confirm').removeClass('modal_in').hide();
+                        $('.modal_bg').hide();
+                        ttx.alert('成功');
+                    }else{
+                        $('.modal_confirm').removeClass('modal_in').hide();
+                        $('.modal_bg').hide();
+                    }
+                });
+                // 返回
+                $('.confirm_action .back').tap(function(){
+                    $('.modal_confirm').removeClass('modal_in').hide();
+                    $('.modal_bg').hide();
+                });
+            }
+        };
+        // 绑定
+        $('h3').tap(function () {
+            
+            ttx.alert($(this).data('tip'));
+        });
+        $('h4').tap(function () {
+            ttx.confirm();
+        });
+    </script>
+</body>
+
+</html>

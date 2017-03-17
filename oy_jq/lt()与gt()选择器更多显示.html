@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet">
+<style>
+	ul,li,ol{list-style: none;}
+	.active{
+		background: #f00;
+	}
+	.list{
+		/*height: 300px;*/
+		height: auto;
+		overflow: hidden;
+	}
+	.list li{
+		height: 50px;
+	}
+</style>
+</head>
+<body>
+
+<ul class="list">
+	<li>123123</li>
+	<li>123123</li>
+	<li>123123</li>
+	<li>123123</li>
+	<li>123123</li>
+	<li>123123</li>
+	<li>123123</li>
+	<li>123123</li>
+	<li>123123</li>
+</ul>
+<a href="javascript:;" class="btn btn-more btn-primary hidden" data-tar="收起按钮">查看更多</a>
+<script type='text/javascript' src='http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2'></script>
+<script type="text/javascript">
+$(function  () {
+	if( $(".list>li").length>3 ){
+		$(".btn-more").removeClass("hidden");
+	}else{
+		$(".btn-more").addClass("hidden");
+	};
+
+	// :gt(i)  选择父集中i之后的子集。
+	// :gt() 与lt()对应， lt()选择之前的。
+	$(".list>li:gt(2)").addClass("hidden");
+	$(".btn-more").click(function () {			
+		if ($(".list>li:gt(2)").hasClass("hidden")) {
+			$(".list>li").removeClass("hidden");
+		}else{
+			$(".list>li:gt(2)").addClass("hidden");
+		}
+		var tar=$(this).data("tar");
+		$(this).data('tar', $(this).text());
+		$(this).text(tar);	
+	});
+})
+</script>
+</body>
+</html>

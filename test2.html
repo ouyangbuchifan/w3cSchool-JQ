@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>图片切换</title> 
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script> 
+<script type="text/javascript" > 
+var num = 0
+$(function() {
+    $("div ol li").mouseover(function(e) {
+        $(this).attr("class", "current");
+        $(this).siblings().attr("class", ""); //兄弟节点的class属性设置为空 
+        //alert($('ul').index()) 
+        num = $('ul').index() + 2
+        var index = $(this).index(); //记录选定的li标签在ul中的索引 
+        //图片会出现层叠现象为了显示当前的图片，把当前的图片的z-index 值设置为大于其他的兄弟元素 
+        $("div ul li").eq(index).css({
+            "left": "650px",
+            "zIndex": num
+        })
+        $("div ul li").eq(index).siblings().css("zIndex", num - 1);
+        //动画效果，图片从右侧飞入 
+        $("div ul li").eq(index).animate({
+            left: "0"
+        }, 500)
+
+    });
+
+});
+</script> 
+<style type="text/css"> 
+*{margin: 0px;padding: 0px;border: 0px;} 
+ul,ol{list-style: none;} 
+.all{width:650px;height: 250px;margin: 100px auto;position: relative;border: 1px solid crimson;overflow: hidden;} 
+.all ul{position: relative;z-index: 1;position: relative;} 
+
+/*子 绝 父 相*/ 
+.all ul li{position: absolute;left: 0;top: 0px;} 
+
+.all ol{position: absolute;z-index: 2; right: 10px;bottom: 10px;} 
+.all ol li{width: 20px;height: 20px;background: #333;border: 1px solid #509629;font-weight: 
+bold;text-align: center;line-height: 20px;float: left;margin-left: 10px;margin-top: 10px;} 
+
+.all ol .current{width: 30px;height: 30px;line-height: 30px;border: 1px solid red;margin-top: 0px; 
+cursor: pointer;} 
+</style> 
+</head> 
+<body> 
+<div class="all"> 
+<ul> 
+<li><img src="src/1.jpg" /></li> 
+<li><img src="src/2.jpg" /></li> 
+<li><img src="src/3.jpg" /></li> 
+<li><img src="src/4.jpg" /></li> 
+</ul> 
+<ol> 
+<li class="current">1</li> 
+<li>2</li> 
+<li>3</li> 
+<li>4</li> 
+</ol> 
+</div> 
+</body> 
+</html> 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.demo,.demo1,.demo2{width:100px;height: 100px;margin: 10px;display: none;}
+	.demo{background: #eee;}
+	.demo1{background: #000;}
+	.demo2{background: #f60;}
+</style>
+</head>
+<body>
+    <div class="demo">
+    	1
+    </div>
+    <div class="demo1">
+    	2
+    </div>
+    <div class="demo2">
+    	3
+    </div>
+    <button type="button" class="btn">淡入</button>
+    <button type="button" class="btn2">淡出</button>
+
+    <script src="jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+	    	// 淡入
+	    	$(".btn").click(function(){
+	    		$(".demo").fadeIn();
+		    	$(".demo1").fadeIn("slow");
+		    	$(".demo2").fadeIn(3000);
+	    	});   
+
+	    	// 淡出	
+	    	$(".btn2").click(function(){
+	    		$(".demo").fadeOut();
+	    		$(".demo1").fadeOut("slow");
+	    		$(".demo2").fadeOut(3000);
+	    	});
+	    });
+    </script>
+</body>
+</html>

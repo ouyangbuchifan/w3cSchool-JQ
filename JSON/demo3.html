@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>W3S JSON</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+    <div>
+    	<span class="firstName"></span>
+    	<span class="lastName"></span>
+    </div>
+
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		var text='{"employees":['+
+			'{"firstName":"孙","lastName":"伟鹏"},'+
+			'{"firstName":"王","lastName":"悦"},'+
+			'{"firstName":"吕","lastName":"凤先"}]}';
+		var obj=JSON.parse(text);
+		$(".firstName").text(obj.employees[0].firstName);
+		$(".lastName").text(obj.employees[0].lastName);
+	})
+</script>
+</body>
+</html>

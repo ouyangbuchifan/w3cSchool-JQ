@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="divdown1" class="count-down">
+		<div style="display:none">
+			<span>00</span>天<span>00</span>时<span>00</span>分<span>00</span>秒
+		</div>
+	</div>
+
+<script language="javascript" type="text/javascript"> 
+function showTime(year,month,day,obj){
+	this.objList = document.getElementById(obj).getElementsByTagName('span');
+	this.endTime = (new Date(year, month-1, day)).getTime();//-(new Date());
+	var self= this;
+	var timer=null;
+	this.start=function(){
+		timer = setInterval(function(){
+			var leftTime=parseInt((self.endTime-(new Date()))/1000);
+			if(leftTime<1){
+				self.end()
+			}
+			else{
+			self.objList[0].innerHTML= parseInt(leftTime/86400) > 9?parseInt(leftTime/86400):'0'+parseInt(leftTime/86400);
+			self.objList[1].innerHTML= parseInt(leftTime/3600)%24 > 9 ? parseInt(leftTime/3600)%24 : '0'+parseInt(leftTime/3600)%24;
+			self.objList[2].innerHTML= parseInt(leftTime/60)%60 > 9? parseInt(leftTime/60)%60 : '0'+parseInt(leftTime/60)%60;
+			self.objList[3].innerHTML= parseInt(leftTime%60) > 9? parseInt(leftTime%60) : '0'+parseInt(leftTime%60);
+			self.objList[0].parentNode.style.display='block';
+			}
+		},1000);
+	};
+	this.end=function(){
+		clearInterval(timer)
+	};
+};
+var timeup = new showTime(2015,8,2,'divdown1');
+timeup.start();
+</script> 
+	
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+
+
+	<!-- JQ中的数组 -->
+	<dl id="menu_title">
+        <dt>人</dt>
+        <dd>
+            一种高级动物
+        </dd>
+        <dt>狗</dt>
+        <dd>
+            人类的朋友
+        </dd>
+        <dt>猫</dt>
+        <dd>
+            猫科动物的祖先
+        </dd>
+    </dl>
+
+    <p>
+    	从结果中我们可以看到，$.each(function(i,o){})方法中的i表示ＪＱ数组的索引值，而o表示ＪＱ数组的值，而o加上$()变成ＪＱ对象之后，使用html()这个方法可以输出o这个对象里的内容；从图中还可以看到ＪＱ产生的数组的索引也是从０开始的。
+    </p>
+    <script type="text/javascript" src='../jquery-1.9.1.min.js'></script>
+    <script type="text/javascript">
+    	// 数组
+    	var arr=[1,2,3,4,"one","two","three","four"];		// 一维数组
+    	var props=[["拳头","刀","抢"],["boxing","knife","gun"],];		// 二维数组
+
+    	// 调用
+    	console.log(arr[0]);	
+    	console.log(props[0][0]);
+
+    	// js对数组的遍历
+    	for (var i in arr) {		// 可能性不高
+    		console.log(arr[i]);
+    	};
+
+    	for (var i = 0; i < arr.length; i++) {		// 性能差的遍历
+    		console.log(arr[i]);
+    	};
+
+    	for (var i = 0,max=arr.length; i < max; i++) {
+    		console.log(arr[i]);
+    	};
+
+
+    	// JQ中的集合
+    	$(function(){
+    		// 返回JQ对象集合
+    		var jqArr=$('#menu_title').find('dt');
+    		console.log('menu_title下的DT元素数量为'+jqArr.size());
+    		// console.log('menu_title下的第一个DT的内容为：'+jqArr[0]+html());	// 这么写是错的，jqArr[0]已经不是JQ对象了。
+    		console.log('menu_title下第一个DT的内容为：'+$(jqArr[0]).html());		// 这么写是对的，加上$()后，它将转换为JQ对象。
+
+    		// JQ对集合的遍历
+	    	jqArr.each(function(i,o){
+	    		console.log('第'+i+'号元素的内容是:'+$(o).html());		// o代表当前元素，相当于 this
+	    		// console.log('第'+i+'号元素的内容就：'+$(jqArr[i]).html());	// 这样也可以
+	    		console.log('第'+i+'号元素的内容是3：'+$(this).html());		// 也可以用$(this)
+	    	})
+    	})
+
+
+    </script>
+</body>
+</html>

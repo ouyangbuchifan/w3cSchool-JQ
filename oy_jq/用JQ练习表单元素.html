@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ练习表单</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .red{color: #f00}
+    </style>
+    <script type="text/ecmascript">
+    function makemonths(first,second){
+          for(var i=first;i<=second;i++){
+              document.write('<option value='+i+'>'+i+'</option>');
+          }
+      }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+            <!--start-->
+            <div class="demo1 clearfix">
+                <div class="center-block">
+                    <h1 class="center-block">表单1</h1>
+                </div>          
+                <form action="" name="form1" class="form1 form col-sm-10 col-sm-10 form-horizontal">
+                    <div class="form-group clearfix">
+                        <div class="control-label col-sm-10 col-md-3">用户名：</div>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="text" placeholder="请输入英文用户名" class="form-control username">
+                        </div>
+                        <div class="col-sm-10 col-md-3">
+                            <div class="text"></div>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="control-label col-sm-10 col-md-3">密码：</div>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="password" class="form-control pwd">
+                        </div>
+                        <div class="col-sm-10 col-md-3">
+                            <div class="text"></div>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="control-label col-sm-10 col-md-3">
+                            年级：
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <select name="" id="sel_1" class="form-control">
+                                <option value="一年级">一年级</option>
+                                <option value="二年级">二年级</option>
+                            </select>                        
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="control-label col-sm-10 col-md-3">性别：</div>
+                        <div class="col-sm-6 col-md-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" class="rad_sex" id="sex_nan" value="男">男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" class="rad_sex" id="sex_nv" checked='checked' value="女">女
+                            </label>                        
+                        </div>
+                    </div>
+                   
+                    <input type="button" value="提 交" class="btn btn-primary btn1 center-block">
+                </form>                
+            </div>
+            <hr>
+            <!-- demo2 单选按钮与多选按钮组-->
+            <div class="demo2 clearfix">
+               <form name="form2" class="form2" action="">
+                    <h2>表单2</h2>
+                   <div class="form-group clearfix">
+                       <p class="lead">请选择你在电脑里想包含的组件：</p>
+                       <label class="checkbox col-md-10 col-md-offset-1">
+                           <input type="checkbox" name="chkDVD" id="chk_DVD" value="DVD-ROM"> DVD-ROM 
+                       </label>
+                       <label class="checkbox col-md-10 col-md-offset-1">
+                           <input type="checkbox" name="chkCD" id="chk_CD" value="CD-ROM"> CD-ROM 
+                       </label>
+                       <label class="checkbox col-md-10 col-md-offset-1">
+                           <input type="checkbox" name="chkZip" id="chk_ZIP" value="Zip-Drive"> Zip-Drive
+                       </label>
+                   </div>
+                   <div class="form-group">
+                       <p class="lead">选择你需要的处理器速度</p>
+                        <div class="radio ">
+                            <label class="col-md-10 col-md-offset-1">
+                                <input type="radio" name="CPUZ" id="rad3.8" value="3.8GHZ" checked='checked'> 3.8GHZ
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="col-md-10 col-md-offset-1">
+                                <input type="radio" name="CPUZ" id="rad4.8" value="4.8GHZ"> 4.8GHZ
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="col-md-10 col-md-offset-1">
+                                <input type="radio" name="CPUZ" id="rad6" value="6GHZ"> 6GHZ
+                            </label>
+                        </div>
+                   </div>
+                   <div class="form-group">
+                       <input type="submit" value="提 交" class="btn btn-primary btn2 center-block">
+                   </div>      
+                   
+                   
+                   
+               </form>
+            </div>
+            <hr>
+            <!--demo3 添加select 选项的练习-->
+            <div class="demo3 clearfix">
+                <form action="" class="form3 form form-horizontal col-md-10">
+                    <div class="form-group">
+                        <div class="control-label col-sm-10 col-md-3">星期：</div>
+                        <div class="col-sm-10 col-md-7">
+                            <select name="selWeek" id="sel_week" class="form-control">
+                                <script>
+                                    makemonths(1,12);
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--end-->
+            </div>
+        </div>
+    </div>
+	
+
+
+	<script type='text/javascript' src='http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2'></script>
+	<script type="text/javascript">
+        
+	$(function(){
+        // 表单1
+      $('.btn1').click(function(){
+          var text='你好，';  
+          var username=$('.username'),pwd=$('.pwd');
+
+          // 用户名
+          if(username.val().length==0){
+              username.parent().next().children('.text').html('<span class="red">请输入你的用户名！</span>');
+              username.css({'border':'1px solid #f00'});
+              return false;
+              username.focus();
+          }else{
+            text+='你的用户名是：'+username.val();
+          }
+
+          // 密码
+          if(pwd.val().length==0){
+              pwd.parent().next().children('.text').html('<span class="red">请输入你的密码！</span>');
+              pwd.css({border:'1px solid #f00'});
+              return false;
+          }else{
+            text+='你的密码是：'+pwd.val();
+          }
+                   
+          // select 被选中的文本
+          text+='你现在是'+$('.form1 select:eq(0) option:selected').text();
+
+          // radio 被选中的值
+          text+='你的性别是'+$('.rad_sex:checked').val();
+
+          // 输出表单内容
+          console.log(text);
+          
+      });
+
+        // 表单2
+      $('.btn2').click(function(){
+          var text2='你选择的CPU是：';
+          var note=$('.form2 input[type="radio"]:checked').val();
+          var com=$('.form2 input[type="checkbox"]:checked ');
+          
+          if(note=='4.8GHZ'){
+              note='不好意思哦哈尼，我们4.8GHZ这个CPU暂时断货了  ';
+          }
+          note+='你还选择了以下组件：';
+          com.each(function(){
+              note+=$(this).attr('value')+'  ';
+          })
+                             
+          console.log(text2+' '+note);
+          return false;
+      })
+      
+        // 表单3
+      $('.demo3 input[type="select"]').remove();
+        
+    })
+	</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ遍历－同胞</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JQ遍历－同胞</h1>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                siblings()  next()  nextAll()  nextUntil()  prev()  prevAll()  prevUntil()  <br>
+            </div>
+            <hr>
+            <p class="lead">
+                siblings() 返回被选元素的所有同胞元素
+            </p>
+            <div class="demo">
+                <h2>标题</h2>
+                <p>段落</p>
+                <p>另一个段落</p>
+                <dl>
+                    <dt>小标题</dt>
+                    <dd>小段落</dd>
+                </dl>
+                <div>
+                    <button class="btn btn1 btn-primary">同级所有</button>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <p class="lead">
+                next() 返回被选元素的下一个同胞元素
+            </p>
+            <div class="demo2">
+                <ul>
+                    <li class="l1">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+                <button class="btn btn2 btn-success">同级下一个</button>
+            </div>
+            <br><hr>
+            <p class="lead">
+                nextUntil() 两个元素之间所有同胞元素
+            </p>
+            <div class="demo3">
+                <ul>
+                    <li class="l1">1</li>
+                    <li class="l2">2</li>
+                    <li class="l3">3</li>
+                    <li class="l4">4</li>
+                    <li class="l5">5</li>
+                    <li class="l6">6</li>
+                </ul>
+                <div>
+                    <button class="btn btn3 btn-primary">nextUntil()</button>
+                    <button class="btn btn4 btn-success">prevUntil()</button>
+                </div>
+            </div>
+            <br><hr>
+            <p class="lead">
+                prev() prevAll() prevUntil()  同上，只是往后查并不是往前查
+            </p>
+            
+            
+        </div>
+    </div>
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // siblings()
+            $('.btn1').click(function(){
+                // $('.demo h2').siblings().css({'border':'1px solid #f00'});
+                $('.demo h2').siblings('p').css({'border':'2px solid #f60'});
+            });
+            
+            // next()
+            $('.btn2').click(function(){
+                $('.demo2 li.l1').next().css({'border':'1px solid #f00'});
+            })
+            
+            // nextUntil()
+            $('.btn3').click(function(){
+                $('.demo3 li.l1').nextUntil('.demo3 li.l5').text('我就是被选中的人');
+            })
+            
+            // prevUntil()
+            $('.btn4').click(function(){
+                $('.demo3 li.l4').prev().css({'border':'1px solid #000'});
+            })
+        })
+    </script>
+</body>
+</html>

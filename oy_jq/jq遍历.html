@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>JQ 遍历数组</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+    <div class="list">
+    	<ul>
+    		<li>我</li>
+    		<li>你</li>
+    		<li>他</li>
+    		<li></li>
+    	</ul>
+    </div>
+
+
+    <script type="text/javascript" src='../jquery-1.9.1.min.js'></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+            // 遍历数组并输出
+    		var text=$('.list ul li');
+    		text.each(function(){
+    			console.log($(this).text());
+    		})
+
+            // 输出元素的下标
+            text.each(function(i,o){
+                console.log($(this).index());  // $(元素数组名).index() 就是下标 
+                // console.log( i );            // 这么简写也成,  i是下标,o是值
+
+            });
+            console.log($(text[0]).html());           // 输出指定下标的内容
+
+            // alert(text[0]);
+
+
+
+
+            // JQ遍历原生数组
+            var myArray=['我','就是','帅'];
+            $.each(myArray,function(i,d){
+                console.log( 'index:'+i+':'+d );
+            });
+
+            myArray.forEach(function(i,d){
+                console.log('index:'+d+':'+i);
+            });
+
+            for (ele in myArray) {
+               console.log(myArray[ele]);
+            };
+
+    	})
+
+
+        
+    </script>
+</body>
+</html>

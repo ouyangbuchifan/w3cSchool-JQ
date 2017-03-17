@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+<body>
+<div class="container">
+	<form action="" class="form">
+		<input type="text" placeholder="请输入内容">
+		<button class="btn_sub" type="button">提交</button>
+	</form>
+	<hr>
+	<a href="###" class="demo">测试</a>
+	<br>
+	<hr>
+
+	<div class="demo2">
+		测试2
+		<p>12346</p>
+	</div>
+	<button class="show">显示</button>
+	<br>
+	<hr>
+	<div class="de">按钮</div>
+	<div class="de2"></div>
+</div>
+
+
+
+<script type='text/javascript' src='http://cdn.bootcss.com/jquery/2.1.1-rc1/jquery.min.js'></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	// click之后按钮禁用
+	$('.btn_sub').click(function () {
+		alert(123);
+		$(this).attr('disabled','disabled');
+	});
+
+	// on方法
+	$('.demo').one('click',function(){
+		console.log('这是用on方法触发的,one表示只能用一次！');
+	});	
+
+	// 适用于未创建的元素
+	$("div.demo2").on("click","p",function(){
+		$(this).slideToggle();
+	});
+
+	// on方法用于JS创建的DOM
+	var text="<p>这是JS添加的内容</p>";
+	$('.de').on('click',function(){
+		$('.de2').append(text);
+	});
+
+	// on方法对于未创建的内容触发
+	$('body').on('click','.de2 p',function(){
+	// $('.de2').on('click','p',function()) 这样也可以，不过，on前面必须是DOM的父级。p这里写胡.de2 p就不行
+		alert(123);
+	});
+
+</script>
+</body>
+</html>

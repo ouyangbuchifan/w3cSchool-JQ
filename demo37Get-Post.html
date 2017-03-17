@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get 和 Post</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p class="lead">
+                    get 有可能取回缓存数据。 post 不会取回缓存数据
+                </p>
+                <div class="demo">
+                    <button type="button" class="btn1">向页面发送GET请求</button>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="demo">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.btn1').click(function(){
+            // get方式 
+            $.get('/txt/d.php',function(data,status){
+                // $.get() 第一个参数规定请求的URL， 后面为成功后的函数名,第二个参数可选
+                alert('数据：'+data+'\n状态：'+status);
+            });
+            
+            // post 方式
+            
+            
+        })
+    })
+    </script>
+</body>
+</html>

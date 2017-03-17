@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>test</title>
+
+<!-- 引入baiduTemplate -->
+
+<script type="text/javascript" src="baiduTemplate1.0.6.js"></script>
+
+</head>
+<body>
+
+
+<div id="demo"></div>
+<script type="text/html" id="t:_1234-abcd-1">
+	<%=title%>
+    <% if(list.length>1){ %>
+    <ul>
+        <%for(var i=0;i<5;i++){%>
+        <li>
+            <%=list[i].name%>
+        </li>
+        <%}%>
+    </ul>
+    <%}else{%>
+    <h2>没有数据</h2>
+    <%}%>
+</script>
+<script type="text/javascript">
+	
+	// 接收到的JSON数据        
+        var data={
+            "title":'这里是标题',
+            "list":[
+                {
+                    'name':'台湾柳丁橙果盒',
+                    'market':'50',
+		            'price':'25',
+		            'specifications':'5粒装'
+                },
+                {
+                    'name':'白菜',
+                    'market':'1.0',
+                    'price':'0.5',
+                    'specifications':'一斤'
+                }
+            ]
+        };
+        var bt=baidu.template;
+        var html=bt('t:_1234-abcd-1',data);
+        document.getElementById('demo').innerHTML=html;
+</script>
+</body>
+</html>

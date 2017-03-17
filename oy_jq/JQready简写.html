@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+	</head>
+<body>
+    <ul class="list">
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ul>
+
+
+    <script type="text/javascript" src='../jquery-1.9.1.min.js'></script>
+    <script type="text/javascript">
+    $(function(){
+        // 同 $(document).ready(function(){})
+    	$('.list li:eq(1)').text('就是我');		// eq() JQ的选择器类似数组，从0开始
+    	$('.list li:nth-of-type(1)').text('我也改了');	// nth-of-type() CSS的选择器，从1开始
+    });
+    </script>
+</body>
+</html>

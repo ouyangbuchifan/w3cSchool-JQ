@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组 对象 测试</title>
+
+</head>
+<body>
+
+
+
+
+	<script type="text/javascript">
+	var items=[
+        {
+            'name':'台湾柳丁橙果盒',
+            'market':'50',
+            'price':'25',
+            'specifications':'5粒装'
+        },
+        {
+            'name':'白菜',
+            'market':'1.0',
+            'price':'0.5',
+            'specifications':'一斤'
+        }
+    ]
+
+	var itemsLen = items.length;
+	for (var i = 0; i < itemsLen; i++) {
+		console.log(items[i].name);
+	};
+
+    /* 
+     * for-in 循环
+     * 规范规定，只可以用来遍历对象，不能用于数组
+     * 最好加上hasOwnProperty()方法，排除从原型上继承的属性
+     */
+    var myself = {
+        name: "孙伟鹏",
+        age: "27",
+        sex: "男",
+        length: "176",
+        height: "67",
+    }
+    var ele;
+    for (ele in myself) {
+        if (myself.hasOwnProperty(ele)) {
+            console.log(ele + ": " +myself[ele]);
+        }
+    }          
+	</script>
+</body>
+</html>

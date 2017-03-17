@@ -1,0 +1,55 @@
+<HTML>
+    
+    <HEAD>
+        <TITLE>
+            密码的隐藏与显示
+        </TITLE>
+    </HEAD>
+    
+    <BODY bgColor=#fef4d9>
+        <BR>
+        <BR>
+        <CENTER>
+            密码的隐藏与显示
+        </CENTER>
+        <BR>
+        <CENTER>
+            <TABLE borderColor=#CC0000 border=5 borderlight="green">
+                <TBODY>
+                    <TR>
+                        <TD align=middle>
+                            <div align="center">
+                                效果显示
+                            </div>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD align=middle>
+                            <FORM name=forms action="" method=post>
+                                <SPAN id=box>
+                                    <INPUT type=password value=523654 name=password>
+                                </SPAN>
+                                <SPAN id=click>
+                                    <A href="javascript:ps()">
+                                        显示密码
+                                    </A>
+                                </SPAN>
+                                <SCRIPT language=JavaScript>
+                                    function ps() {
+                                        if (this.forms.password.type = "password") box.innerHTML = "<input type=\"html\" name=\"password\" size=\"20\" value=" + this.forms.password.value + ">";
+                                        click.innerHTML = "<a href=\"javascript:txt()\">隐藏密码</a>"
+                                    }
+                                    function txt() {
+                                        if (this.forms.password.type = "text") box.innerHTML = "<input type=\"password\" name=\"password\" size=\"20\" value=" + this.forms.password.value + ">";
+                                        click.innerHTML = "<a href=\"javascript:ps()\">显示密码</a>"
+                                    }
+                                </SCRIPT>
+                            </FORM>
+                        </TD>
+                    </TR>
+                </TBODY>
+            </TABLE>
+        </CENTER>
+    </BODY>
+
+</HTML>

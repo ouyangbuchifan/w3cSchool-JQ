@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>仅一个高亮</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<style>
+		ul,li,ol{list-style: none;}
+		.list{height: 37px;line-height: 35px;overflow: auto;}
+		/*overflow:auto 也可以用来清除浮动。但是盒子高度一定要写对。*/
+		.list li {float: left;	}
+		.list li a{width: 100px;line-height: 35px;display:inline-block;border: 1px solid #fff;text-decoration: none;color: #666;text-align: center;}
+		.list li a.on{border: 1px solid #f60;}
+		</style>
+	</head>
+<body>
+    <ul class="list">
+    	<li><a href="###">首页</a></li>
+    	<li><a href="###">关于我们</a></li>
+    	<li><a href="###">新闻</a></li>
+    	<li><a href="###">招聘</a></li>
+    </ul>
+	<br>
+	<hr>
+	<p>
+		点击链接时，让这个链接当前高亮，但是其他的链接都不显示高亮。
+	</p>
+	
+
+	<script type='text/javascript' src='http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2'></script>
+	<script type="text/javascript">
+	$(function () {
+		$('.list li').click(function(){
+			$(this).children('a').addClass('on');
+			$(this).siblings().children('a').removeClass('on');
+		})
+	})
+	</script>
+</body>
+</html>
