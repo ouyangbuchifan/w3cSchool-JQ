@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+    <title>10元1G流量秒杀 周五特惠-秒杀！团购！限时抢！ 中国移动</title>
+    <style>
+ a {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+address,caption,cite,code,dfn,em,th,var {
+	font-weight:normal;
+	font-style:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight:normal;
+	font-size:100%;
+}
+q:before,q:after {
+	content:'';
+}
+fieldset,img,abbr,acronym {
+	border:0;
+}
+/* 页面样式*/.c:before,.c:after {
+	content:"";
+	display:table;
+}
+.c:after {
+	clear:both;
+}
+.c {
+	zoom:1;
+}
+body {
+	font:12px/1.5 'Microsoft YaHei','微软雅黑','Microsoft JhengHei','华文细黑','STHeiti','MingLiu','Arial','simsun','宋体b8b\4f53';
+}
+a {
+	text-decoration:none;
+	overflow:hidden;
+	white-space:nowrap;
+}
+a:hover {
+	text-decoration:underline;
+}
+.pr {
+	position:relative;
+}
+.pa {
+	position:absolute;
+}
+.pf {
+	position:fixed;
+}
+.hide {
+	display:block;
+	width:0;
+	height:0;
+	overflow:hidden;
+}
+.db {
+	display:block;
+}
+.fl {
+	float:left;
+}
+.fr {
+	float:right;
+}
+.fw-b {
+	font-weight:bold;
+}
+.bz {
+	box-sizing:border-box;
+}
+.red {
+	color:#ff4400;
+}
+html {
+	font-size:62.5%;
+}
+body {
+	font-size:14px;
+	font-size:1.4rem;
+	max-width:640px;
+	margin:0 auto;
+}
+img {
+	max-width:100%;
+}
+.wrap {
+	max-width:100%;
+	margin:0 auto;
+}
+.wrap img {
+	width:100%;
+	display:block;
+}
+.count-down{  
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  background: url(images/liuliang_time.png) no-repeat center top;
+  background-size: 295px auto;
+  width: 295px;
+  height: 79px;
+    line-height: 74px;
+    color: #f9406c;
+  text-indent: 20px;
+  font-size: 1.4rem;
+    display: none;}
+        .cont .no_wp{
+  position: absolute;
+  right: 15%;
+  bottom: 22%;
+  display: block;
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 2rem;
+  text-align: center;
+  background: #ccc;
+  color: #666;
+  border-radius: 5px;
+        }
+        .cont .no_wp.yes{
+            background: #f9406c;
+            color: #fff;
+        }
+        @media(max-width:365px){
+            .cont .no_wp{
+                bottom: 25%;
+                width: 85px;
+                height: 25px;
+                line-height: 25px;
+                font-size: 1.6rem;
+            }
+        }
+        .modal_bg{
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.6);
+            z-index: 1000;
+        }
+        .modal_wp{
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 100px;
+            width: 80%;
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 2000;
+            margin-left: -40%;
+            background: #35adf9;
+            box-sizing:border-box;
+            text-align: center;
+        }
+        .modal_wp p{
+            font-size: 1.6rem;
+            color: #fff;
+        }
+        .modal_wp .btn_back{
+            display: block;
+            margin: 10px auto 0;
+            background: #f9406c;
+            color: #fff;
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="banner pr">
+            <img src="images/liuliang_1.jpg" alt="">
+            <div id="divdown1" class="count-down">
+                <div style="display:none">
+                    距离开抢还有 <span>00</span>时 <span>00</span>分 <span>00</span>秒
+                </div>
+            </div>
+        </div>
+        <div class="cont pr">
+            <img src="images/liuliang_2.jpg" alt="">
+            <em class="no_wp">马上抢</em>
+        </div>
+        <footer>
+            <img src="images/liuliang_3.jpg" alt="">
+        </footer>
+    </div>
+    <!-- modal -->
+    <div class="modal_bg"></div>
+    <div class="modal_wp">
+        <p>对不起，您还没有关注宁夏移动，</p>
+        <em class="btn_back">确定</em>
+    </div>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        function init(){
+            var fuwuqidate=new Date(2015,7,5,16,15,50);
+            this.showTime=function(year,month,day,h,m,s,obj){
+                this.objList = document.getElementById(obj).getElementsByTagName('span');
+                this.endTime = (new Date(year, month, day,h,m,s)).getTime();//-(new Date());
+                var self= this;
+                var timer=null;
+                var sttime=(self.endTime-fuwuqidate)/1000;
+                var nowtime=setInterval(function(){
+                    sttime--;
+                },1000);
+                this.start=function(){
+                    timer = setInterval(function(){
+                        var leftTime=parseInt(sttime);
+                        if(leftTime<1){
+                            self.end();
+                        }
+                        else{
+                        self.objList[0].innerHTML= parseInt(leftTime/3600)%24 > 9 ? parseInt(leftTime/3600)%24 : '0'+parseInt(leftTime/3600)%24;
+                        self.objList[1].innerHTML= parseInt(leftTime/60)%60 > 9? parseInt(leftTime/60)%60 : '0'+parseInt(leftTime/60)%60;
+                        self.objList[2].innerHTML= parseInt(leftTime%60) > 9? parseInt(leftTime%60) : '0'+parseInt(leftTime%60);
+                        self.objList[0].parentNode.style.display='block';
+                        }
+                    },1000);
+                    return [sttime];
+                };
+                this.end=function(){
+                    clearInterval(timer)
+                };
+            };
+            var timeup = new showTime(2015,7,5,16,16,00,'divdown1');    // 更改 活动1开始抢购时间
+
+            var startDate=new Date(2015,7,5,16,16,00);  // 更改 活动结束抢购时间
+            var endDate=new Date(2015,7,5,16,17,00);    // 更改 活动结束抢购时间
+            var edtime=(endDate-fuwuqidate)/1000;
+            // 活动开始控制
+            var activity=function(){
+                var sttime=timeup.start();
+                //开始时间控制
+                var nows=setInterval(function(){
+                    sttime--;
+                },1000);
+                //结束时间控制
+                var nowtime=setInterval(function(){
+                    edtime--;
+                    console.log('剩余'+edtime);
+                },1000);
+                var s=setInterval(function(){
+                    // 活动1
+                    if( sttime>0  ){
+                        timeup.start();
+                        $('.no_wp').removeClass('yes');
+                        $('.count-down').show();
+                    }
+                    if( sttime<=0 ){
+                        timeup.end();
+                        $('.no_wp').addClass('yes');
+                        $('.count-down').hide();
+                        $('.no_wp').click(function(){   // 更改 活动地址
+                            location.href="http://wap.nx.10086.cn";
+                        });
+                    }
+                    if( edtime<=0 ){
+                        $('.no_wp').removeClass('yes');
+                        $('.no_wp').click(function(){
+                            location.href="javascript:;";
+                        });
+                        clearInterval(nowtime);
+                    }
+                },1000);
+            };
+            activity();
+        };
+
+        init();
+        
+
+        //modal
+        function modal_open(){
+            $('.modal_bg').show();
+            $('.modal_wp').show();
+        };
+        $('.btn_back').click(function(){
+            $('.modal_bg').hide();
+            $('.modal_wp').hide();
+        });
+        modal_open();
+    </script>
+</body>
+</html>

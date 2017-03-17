@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<title></title>
+		<style>
+			body {
+				font-family: "微软雅黑";margin: 0px;padding: 0px;max-width: 640px;margin: 0px auto;
+			}
+			ul {width: 100%;margin: 0px;padding: 0px;}
+			ul li{width: 33.33%;float: left;list-style: none;background: #F1A899; text-align: center;font-size: 18px;padding: 10px 0;color: #F2F2F2;} 
+			ul li strong{font-family: arial;font-size: 28px;font-weight: normal;margin: 0 5px;}
+			ul li span{font-family: arial; }
+		</style>
+	</head>
+
+	<body> 
+		<ul>
+			<li><strong><span id="one">0</span>.00</strong>元</li>
+			<li><strong><span id="two">0</span>.00</strong>元</li>
+			<li><strong><span id="three">0</span>.00</strong>M</li>
+			 
+		</ul>
+		<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="jquery.animateNumber.js"></script>
+		<script>
+			$('#one')
+				.prop('number', 0)
+				.animateNumber({
+						number: 100.00, 
+					},
+					500
+				);
+			$('#two') 
+				.prop('number', 0)
+				.animateNumber({
+						number: 80.00
+					},
+					1000
+				);
+			$('#three')
+				.prop('number', 0)
+				.animateNumber({
+						number: 678
+					},
+					1900
+				);
+		</script>
+	</body>
+
+</html>

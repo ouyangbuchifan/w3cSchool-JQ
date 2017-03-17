@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	<script>
+	var areadata ={ 
+	    province : [], 
+	    city: [], 
+	    district: [] 
+	    } 
+	function initAreaData(){ 
+		var dataroot="area.json"; 
+		$.getJSON(dataroot, function(data){
+			$.each(data, function(){
+				areadata.province=data.province; 
+				areadata.city=data.city; 
+				areadata.district=data.district; 
+			}) 
+			
+		}); 
+
+	};
+	initAreaData();
+	</script>
+</body>
+</html>

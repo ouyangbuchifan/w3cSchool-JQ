@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>toast</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+	</style>
+</head>
+<body>
+	<div class="btn btn-primary">确定</div>
+	
+	<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+	<script src="wapToast.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".btn").click(function(){
+			$("body").wapToast({
+				txt: '测试内容<br/>这不是太好',
+				align: 'center',
+				size: '12px',
+				bottom: '30%'
+			});
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<style>
+			body{background: #f60;}
+			.finger{width: 60px;height: 60px;background: url(z43.png) no-repeat center center;background-size: auto 58px;margin-top: 140px;}
+			.fingerUp{animation: fingerUp 1.2s infinite;-webkit-animation: fingerUp 1.2s infinite;}
+			@-webkit-keyframes fingerUp {
+			  from {
+			    -webkit-transform: translate3d(0, 0, 0);
+			    transform: translate3d(0, 0, 0);
+			  }
+			  to {
+			    visibility: hidden;
+			    -webkit-transform: translate3d(0, -30%, 0);
+			    transform: translate3d(0, -30%, 0);
+			  }
+			}
+			@keyframes fingerUp {
+			  from {
+			    -webkit-transform: translate3d(0, 0, 0);
+			    transform: translate3d(0, 0, 0);
+			  }
+			  to {
+			    visibility: hidden;
+			    -webkit-transform: translate3d(0, -30%, 0);
+			    transform: translate3d(0, -30%, 0);
+			  }
+			}
+		</style>
+		<link rel="stylesheet" href="static/css/animate.css" />
+	</head>
+	<body>
+		<img src="z41.png" alt="" id="img5" />
+		
+		
+		<div class="finger fingerUp">
+			
+		</div>
+		<script src="jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.rotate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var rotation2 = function (){
+			   $("#img5").rotate({
+			      angle:0, 
+			      animateTo:360, 
+			      duration:2000,
+			      callback: rotation2,
+			      easing: function (x,t,b,c,d){        // t: current time, b: begInnIng value, c: change In value, d: duration
+			          return c*(t/d)+b;
+			      }
+			   });
+			}
+			rotation2();
+		</script>
+	</body>
+</html>

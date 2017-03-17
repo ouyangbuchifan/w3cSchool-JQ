@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+    <title>10元1G流量秒杀 周五特惠-秒杀！团购！限时抢！ 中国移动</title>
+    <style>
+ a{-webkit-tap-highlight-color:rgba(0,0,0,0);}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}address,caption,cite,code,dfn,em,th,var{font-weight:normal;font-style:normal;}ol,ul{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}q:before,q:after{content:'';}fieldset,img,abbr,acronym{border:0;}/* 页面样式*/.c:before,.c:after{content:"";display:table;}.c:after{clear:both;}.c{zoom:1;}body{font:12px/1.5 'Microsoft YaHei','微软雅黑','Microsoft JhengHei','华文细黑','STHeiti','MingLiu','Arial','simsun','宋体b8b\4f53';}body{background: url(images/body_bg.png);}a{text-decoration:none;overflow:hidden;white-space:nowrap;}a:hover{text-decoration:underline;}.pr{position:relative;}.pa{position:absolute;}.pf{position:fixed;}.hide{display:block;width:0;height:0;overflow:hidden;}.db{display:block;}.fl{float:left;}.fr{float:right;}.fw-b{font-weight:bold;}.bz{box-sizing:border-box;}.red{color:#ff4400;}html{font-size:62.5%;}body{font-size:14px;font-size:1.4rem;max-width:640px;margin:0 auto;}img{max-width:100%;}.wrap{max-width: 100%;margin: 0 auto;}.wrap img{width: 100%;display: block;}.cont1,.cont2{position: relative;margin-bottom: 30px;}.count-down,.count-down2{position: absolute;right: 0;bottom: 20%;background: url(images/time.png) no-repeat center top;background-size: 150px;width: 150px;height: 34px;text-indent: 25px;color: #fff;font-size: 1.4rem;display: none;}.count-down2{bottom: 18%;}.cont1 .no_wp,.cont2 .no_wp2{display:block;position:absolute;right:10px;bottom:4px;width:95px;height:40px;background: url(images/btn0.png) no-repeat center top;background-size: 95px;font-size:0;}.cont1 .no_wp.yes{background: url(images/btn1.png) no-repeat center top;background-size: 95px;width:95px;height:40px;}.cont2 .no_wp2.yes{background: url(images/btn1.png) no-repeat center top;background-size: 95px;width:95px;height:40px;}@media(max-width:360px){.count-down,.count-down3{bottom: 17%;font-size: 1.2rem;}.count-down2{bottom: 15%;font-size: 1.2rem;}.cont1 .no_wp,.cont2 .no_wp2{background-size: 85px;width: 85px;height: 35px;}.cont1 .no_wp.yes,.cont2 .no_wp2.yes{background-size: 85px;width: 85px;height: 35px;}}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="banner">
+            <img src="images/wap01.jpg" alt="">
+        </div>
+        <div class="info">
+            <img src="images/wap02.jpg" alt="">
+        </div>
+        <div class="cont1">
+            <img src="images/wap03.jpg" alt="">
+            <div id="divdown1" class="count-down">
+                <div style="display:none">
+                    剩余<span>00</span>时<span>00</span>分<span>00</span>秒
+                </div>
+            </div>
+            <em class="no_wp">抢购</em>
+        </div>
+        <div class="cont2">
+            <img src="images/wap04.jpg" alt="">
+            <div id="divdown2" class="count-down2">
+                <div style="display:none">
+                    剩余<span>00</span>时<span>00</span>分<span>00</span>秒
+                </div>
+            </div>
+            <em class="no_wp2">抢购</em>
+        </div>
+        <div class="footer">
+            <img src="images/wap06.jpg" alt="">
+        </div>
+    </div>
+    
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        function init(){
+            var fuwuqidate=new Date(2015,7,5,16,15,50);
+            this.showTime=function(year,month,day,h,m,s,obj){
+                this.objList = document.getElementById(obj).getElementsByTagName('span');
+                this.endTime = (new Date(year, month, day,h,m,s)).getTime();//-(new Date());
+                var self= this;
+                var timer=null;
+                var sttime=(self.endTime-fuwuqidate)/1000;
+                var nowtime=setInterval(function(){
+                    sttime--;
+                },1000);
+                this.start=function(){
+                    timer = setInterval(function(){
+                        var leftTime=parseInt(sttime);
+                        if(leftTime<1){
+                            self.end();
+                        }
+                        else{
+                        self.objList[0].innerHTML= parseInt(leftTime/3600)%24 > 9 ? parseInt(leftTime/3600)%24 : '0'+parseInt(leftTime/3600)%24;
+                        self.objList[1].innerHTML= parseInt(leftTime/60)%60 > 9? parseInt(leftTime/60)%60 : '0'+parseInt(leftTime/60)%60;
+                        self.objList[2].innerHTML= parseInt(leftTime%60) > 9? parseInt(leftTime%60) : '0'+parseInt(leftTime%60);
+                        self.objList[0].parentNode.style.display='block';
+                        }
+                    },1000);
+                    return [sttime];
+                };
+                this.end=function(){
+                    clearInterval(timer)
+                };
+            };
+            var timeup = new showTime(2015,7,5,16,16,00,'divdown1');    // 更改 活动1开始抢购时间
+            var timeup2 = new showTime(2015,7,5,16,16,00,'divdown2');   // 更改 活动2开始抢购时间
+        
+            var startDate=new Date(2015,7,5,16,16,00);  // 更改 活动结束抢购时间
+            var endDate=new Date(2015,7,5,16,17,00);    // 更改 活动结束抢购时间
+            var edtime=(endDate-fuwuqidate)/1000;
+            // 活动开始控制
+            var activity=function(){
+                var sttime=timeup.start();
+                //开始时间控制
+                var nows=setInterval(function(){
+                    sttime--;
+                },1000);
+                //结束时间控制
+                var nowtime=setInterval(function(){
+                    edtime--;
+                    console.log('剩余'+edtime);
+                },1000);
+                var s=setInterval(function(){
+                    // 活动1
+                    if( sttime>0  ){
+                        timeup.start();
+                        $('.no_wp').removeClass('yes');
+                        $('.count-down').show();
+                    }
+                    if( sttime<=0 ){
+                        timeup.end();
+                        $('.no_wp').addClass('yes');
+                        $('.count-down').hide();
+                        $('.no_wp').click(function(){   // 更改 活动地址
+                            location.href="http://wap.nx.10086.cn";
+                        });
+                    }
+                    if( edtime<=0 ){
+                        $('.no_wp').removeClass('yes');
+                        $('.no_wp').click(function(){
+                            location.href="javascript:;";
+                        });
+                        clearInterval(nowtime);
+                    }
+                    // 活动2
+                    if( sttime>0   ){
+                        timeup2.start();
+                        $('.no_wp2').removeClass('yes');
+                        $('.count-down2').show();
+                    }
+                    if( sttime<=0 ){
+                        timeup2.end();
+                        $('.no_wp2').addClass('yes');
+                        $('.count-down2').hide();
+                        $('.no_wp2').click(function(){  // 更改 活动地址
+                            location.href="http://wap.nx.10086.cn/wap_emall/phone/phoneDetailPage?channelId=WP&getXZRegionListReq.goods_id=GD-46a23291653d448692a42362769d433c&phoneListReq.area=951&phoneBean.isSingle=1&phoneBean.isCombine=0&is_jt=0";
+                        });
+                    }
+                    if( edtime<=0  ){
+                        $('.no_wp2').removeClass('yes');
+                        $('.no_wp2').click(function(){
+                            location.href="javascript:;";
+                        });
+                        clearInterval(nowtime);
+                    }
+                },1000);
+            };
+            activity();
+
+        };
+
+        init();
+        
+
+    </script>
+</body>
+</html>
