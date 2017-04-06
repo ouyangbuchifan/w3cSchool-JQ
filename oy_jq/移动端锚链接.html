@@ -33,7 +33,7 @@
         $("nav span").click(function(){
             var anchor = $(this).data("order");
             var anchor_scroll = $("#"+anchor).offset().top;
-            $("html body").animate({"scrollTop": anchor_scroll}, "fast");
+            $("html body").animate({"scrollTop": anchor_scroll}, "slow");
         });
 
     </script>
