@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Document</title>
+    <style>
+    .demo{
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        right:auto;
+        width: 100px;
+        height: 100px;
+        background: #f60;
+    }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script>
+
+        var demo = document.getElementsByClassName('demo')[0],
+            oW, oH;
+        demo.addEventListener('touchstart', function(e){
+            var touches = e.touches[0];
+            oW = touches.clientX - demo.offsetLeft;
+            oH = touches.clientY - demo.offsetTop;
+        });
+        demo.addEventListener('touchmove', function(e){
+            var touches = e.touches[0];            
+            var oLeft = touches.clientX - oW;
+            var oTop = touches.clientY - oH;
+            if (oLeft < 0) {
+                oLeft = 0;
+            }else if(oLeft > document.documentElement.clientWidth - demo.offsetWidth){
+                oLeft = document.documentElement.clientWidth - demo.offsetWidth
+            }
+            demo.style.left = oLeft + 'px';
+            demo.style.top = oTop + 'px';
+        });
+
+        demo.addEventListener('touchend', function(e){
+            var eLeft = parseInt(demo.style.left) + demo.offsetWidth/2;
+            if (eLeft < document.documentElement.clientWidth/2){
+            	// js无动画
+                // demo.style.left = '10px';
+                
+                // jq动画
+                $('.demo').animate({'left':'10px', 'right':'100%'}, 'fast');
+            } else if(eLeft >= document.documentElement.clientWidth/2){
+				var sLeft = document.documentElement.clientWidth - demo.offsetWidth;
+				// js无动画
+               	// demo.style.right = '10px';
+               	// demo.style.left = sLeft + 'px';
+                
+                // jq动画
+				$('.demo').animate({'right':'10px', 'left':sLeft + 'px'}, 'fast');
+            }
+        })
+
+    </script>
+</body>
+</html>
