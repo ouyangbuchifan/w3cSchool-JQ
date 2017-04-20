@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- 
+目录说明：
+static： 所有JS及CSS
+fonts:  字体使用的是 iconfont
+css:  bootstrap.css 只有登录页面用到了BS，如果不用，可以删掉
+JS：  html5.js modernizr.custom.12076.js 两个都是为了让低版本IE适应html5标签
+      lh_customer.js 主要是第一个二级菜单里，模拟手机APP效果的JS
+      respond.min.js 让IE8支持媒体查询的，同样不用的话可以删掉
+mmenu： 这个目录是第一个二级菜单里，模拟手机APP效果的JS，不用的话可以去掉。
+
+另：  lh_ 为了区分其他UI而命名的。不喜欢的可以改掉。  这个框架模仿于 jq22.com。为尊重原作者，LOGO留下来了。
+ -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>主页</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+        <meta name="欧阳不吃饭" content="QQ:382469810" >
+		<link href="static/css/reset.css" rel="stylesheet">
+		<script type="text/javascript" src="static/js/html5.js"></script>
+		<link rel="stylesheet" href="static/mmenu/jquery.mmenu.all.css">
+	</head>
+<body>
+    <header class="lh_header">
+		<a href="javascript:;" class="lh_logo fl"></a>
+    	<div class="lh_nav_hd fr">
+            <form action="javascript:;" class="fl lh_search">
+                <input type="text" class="lh_search_text lh_input_add_width">
+                <input type="submit" class="lh_search_submit"> 
+            </form>  
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=2874307250&site=qq&menu=yes" class="iconfont lh_btn_hd" title="QQ">&#xe617;</a>
+            <a href="javascript:;" class="iconfont lh_btn_hd" title="网站预览" target="_blank">&#xe60d;</a>
+            <a href="javascript:;" class="iconfont lh_btn_hd" title="退出">&#xe60c;</a>
+    	</div>
+    </header>
+    <aside class="lh_subnav_wrap">
+		<a class="lh_home">
+			<i class="iconfont">&#xe605;</i>
+		</a>
+    	<ul>
+    		<li>
+                <a href="javascript:;" class="lh_title">
+                    <i class="iconfont">&#xe618;</i>
+                    <span>内容管理</span>
+                </a>
+    			<dl class="lh_subnav_content bg_01">
+    				<dt>内容管理</dt>
+					<dd>
+                        <!-- menu-->
+						<div id="menu">
+                            <div id="app">
+                                <ul id="settings">
+                                    <li id="setting-location">
+                                        <span>内容管理</span>
+                                        <ul id="locations">
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="setting-radius">
+                                        <span>内容管理</span>
+                                        <ul id="radius">
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="setting-pricerange">
+                                        <span>内容管理</span>
+                                        <ul id="pricerange">
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                        </ul>
+                                    </li>	
+                                    <li id="setting-engineering">
+                                        <span>内容管理</span>
+                                        <ul id="engineering">
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span>内容管理</span>
+                                        <ul id="message">
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                            <li><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></span>
+                                    </li>
+                                    <li>
+                                        <span><a href="###" class="lh_text_grey" target="lh_main">内容管理</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> <!-- /menu-->
+						
+					</dd>					
+    			</dl>
+    		</li>
+    		<li>
+                <a href="#" class="lh_title">
+                    <i class="iconfont">&#xe619;</i>
+                    <span>内容管理</span>
+                </a>
+    			<dl class="lh_subnav_content bg_02">
+    				<dt>内容管理</dt>
+					<dd>
+						<a href="###" class="lh_text_grey" target="lh_main">
+							<i class="iconfont">&#xe612;</i>
+							<span>内容管理</span>
+						</a>
+						<a href="###" class="lh_text_grey" target="lh_main">
+							<i class="iconfont">&#xe614;</i>
+							<span>内容管理</span>
+						</a>
+						<a href="###" class="lh_text_grey" target="lh_main">
+							<i class="iconfont">&#xe613;</i>
+							<span>内容管理</span>
+						</a>
+						<a href="###" class="lh_text_grey" target="lh_main">
+							<i class="iconfont">&#xe611;</i>
+							<span>内容管理</span>
+						</a>
+						<a href="###" class="lh_text_grey" target="lh_main">
+							<i class="iconfont">&#xe615;</i>
+							<span>内容管理</span>
+						</a>
+
+					</dd>
+					
+    			</dl>
+    		</li>
+    		<li>
+                <a href="#" class="lh_title">
+                    <i class="iconfont">&#xe61b;</i>
+                    <span>内容管理</span>
+                </a>
+    			<dl class="lh_subnav_content bg_03">
+    				<dt>内容管理</dt>
+					<dd>
+						<a href="###">
+							<i class="iconfont">&#xe607;</i>
+							<span>内容管理</span>
+						</a>
+						
+
+					</dd>
+					
+    			</dl>
+    		</li>
+    		<li>
+                <a href="#" class="lh_title">
+                    <i class="iconfont">&#xe61e;</i>
+                    <span>内容管理</span>
+                </a>
+    			<dl class="lh_subnav_content bg_04">
+    				<dt>内容管理</dt>
+					<dd>
+						<a href="###">
+							<i class="iconfont">&#xe61d;</i>
+							<span>内容管理</span>
+						</a>
+						
+
+					</dd>
+					
+    			</dl>
+    		</li>
+    		    		
+    	</ul>
+    </aside>
+    <div class="lh_main">
+   
+        <iframe src="login.htm" frameborder="0" name="lh_main" width="100%" height="100%" style="padding-bottom:80px;"></iframe>
+    </div>
+
+
+
+<script type='text/javascript' src='static/js/jquery-1.9.1.min.js'></script>
+<script src="static/mmenu/jquery.mmenu.min.js"></script>
+<script type="text/javascript" src="static/js/lh_customer.js"></script>
+<script>
+$(function(){
+    // 左侧nav滑过显示
+	$('.lh_subnav_wrap>ul>li').hover(function(){
+		$(this).children('dl').show();	
+	},function(){
+		$(this).children('dl').hide();	
+	});
+	// 顶部动画
+	$('.lh_input_add_width').focusin(function(){
+		$(this).animate({width:'200px'},'slow');
+	}).focusout(function(){
+		if( $(this).val()=='' ){
+			$(this).animate({width:'20px'},'slow');
+		};
+	});
+    
+})    
+</script>
+</body>
+</html>
