@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+	<title>下拉加载更多</title>
+	<style>
+		.cont .item{height: 150px;width: 100%;text-align: center;background: #f1f1f1;border-bottom: 1px solid #ccc;}
+		.noMore{text-align: center;}
+	</style>
+</head>
+<body>
+	<p>一个简易的下拉加载，没有引入动画。</p>
+    <div class="main" style="height:700px;overflow:auto;">  
+        <div class="cont"></div>
+    </div> 
+
+    <script src="jquery-2.1.4.min.js"></script> 
+    <script>
+    	$(document).ready(function(){  
+		    $(".main").unbind("scroll").bind("scroll", function(e){  
+		        var sum = this.scrollHeight;  
+		        if (sum <= $(this).scrollTop() + $(this).height()) {  
+		            // data.pageInd=1;
+		            setList();
+		        }  
+		    });  
+		    function setList(){
+		    	$('.cont').html('');
+		    	var templete = '';
+		    	var iLen = data.pageInd*data.pageSize;
+		    	for (var i = 0; i < iLen; i++) {
+		    		templete += '<p class="item">'
+			    		+ data.itemList[i]
+			    		+ '</p>';
+		    	};
+		    	
+		    	if (data.pageInd<4) {
+		    		$('.cont').append(templete);
+		    		data.pageInd++;
+		    	}else{
+		    		$('.cont').append(templete);
+		    		$('.cont').append('<p class="noMore"> 没有内容了'+'</p>');
+		    	}
+		    	
+		    }
+
+		    var data = {
+		    	pageInd: 1,		// 当前页数
+		    	pageSize: 5,	// 每页多少条
+		    	itemList: ['item1','item2','item3','item4','item5','item6','item7','item8','item9','item10','item11','item12','item13','item14','item15','item16','item17','item18','item19','item20']
+		    }
+
+		    setList();
+		});  
+    </script>
+</body>
+</html>
