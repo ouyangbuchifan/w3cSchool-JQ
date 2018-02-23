@@ -6,7 +6,10 @@
 		<title>Examples</title>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
-		<link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+		<!-- <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+		<style>
+		#btnOff{margin-left: 20px;}
+		</style>
 	</head>
 <body>
 <div class="container">
@@ -28,12 +31,19 @@
 	<hr>
 	<div class="de">按钮</div>
 	<div class="de2"></div>
+	<br>
+	<hr>
+	<p class="summary">这是我的段落</p>
+	<br>
+	<hr>
+	<div id="offDom"></div>
+	<span id="btnOn">确定</span><span id="btnOff">重置</span>
 </div>
 
 
 
-<script type='text/javascript' src='http://cdn.bootcss.com/jquery/2.1.1-rc1/jquery.min.js'></script>
-<script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='../jquery-1.9.1.min.js'></script>
+<!-- <script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 <script type="text/javascript">
 	// click之后按钮禁用
 	$('.btn_sub').click(function () {
@@ -59,8 +69,24 @@
 
 	// on方法对于未创建的内容触发
 	$('body').on('click','.de2 p',function(){
-	// $('.de2').on('click','p',function()) 这样也可以，不过，on前面必须是DOM的父级。p这里写胡.de2 p就不行
+	// $('.de2').on('click','p',function()) 这样也可以，不过，on前面必须是DOM的父级。p这里写成.de2 p就不行
 		alert(123);
+	});
+
+	// on方法触发函数时，可以不写函数的括号
+	function changeColor(){
+		$('.summary').css('color','#0085d0');
+	}
+	$('.summary').on('click', changeColor);
+
+	// off方法 取消on绑定DOM事件
+	$('#btnOn').on('click',function(){
+		console.log('添加了内容');
+	});
+	// 取消了打印动作
+	$('#btnOff').on('click',function(){
+		$('#btnOn').off('click');
+		console.log('去除打印行为');
 	});
 
 </script>

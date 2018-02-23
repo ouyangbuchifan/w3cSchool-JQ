@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=IE8,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="myInput" value="123">
+    <script src="../jquery-2.1.4.min.js"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            /***
+            * $.fn.myfunc 相当于 jquery.prototype.myfunc 给$原型加函数
+            */
+        	$.fn.myfun = function(){
+                $(this).val('值被改变了');
+            }
+            
+            $(window).on('resize', function(){
+                $('#myInput').myfun();      // window尺寸变化时input值会发生改变
+            });
+        	
+        });
+
+	</script>
+</body>
+</html>
