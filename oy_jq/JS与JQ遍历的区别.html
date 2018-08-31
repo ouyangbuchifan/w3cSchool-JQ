@@ -68,7 +68,35 @@
 	    		// console.log('第'+i+'号元素的内容就：'+$(jqArr[i]).html());	// 这样也可以
 	    		console.log('第'+i+'号元素的内容是3：'+$(this).html());		// 也可以用$(this)
 	    	})
-    	})
+    	});
+
+        // 原生js遍历对象下标及值
+        var data = {
+            "j_name":"张三",
+            "j_alias":"1431781B29",
+            "j_acceptNum":"15226203669",
+            "j_identification":"实名认证用户",
+            "j_userCategory":"个人用户",
+            "j_accountState":"开户",
+            "j_pwdState":"初始化状态",
+            "j_payPwdState":"初始化状态",
+            "j_HJBbalance":"ERROR",
+            "j_HJBtotalIncome":"ERROR",
+            "j_HJBdayIncome":"ERROR",
+            "j_HBaccount":"1000291004268622627",
+            "j_HBpayByCard":"",
+            "j_HBpayByCardID":"",
+            "j_HBcashBalance":"",
+            "j_HBrechargeCardBalance":"",
+            "j_customerStatus":"",
+            "j_HBrechargeCardAttr":"没有开通和包刷卡",
+            "j_HBcardStatus":"",
+            "j_member":"EXCEPTION",
+            "j_creditRating":"EXCEPTION"
+        };
+        for (var x in data) {
+            document.write(x + ": " + data[x] + "<br/>")
+        }
 
 
     </script>

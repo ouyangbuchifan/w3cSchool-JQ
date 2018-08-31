@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试组件</title>
+</head>
+<body>
+	<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+	<script src="alert.js"></script>
+	<script>
+		alert({
+			head:'新标题',
+			text:'亲，你的版本太低，快去升级吧~',
+			btn:'OK'
+		}, function(){
+			console.log('执行完成')
+		});
+	</script>
+</body>
+</html>

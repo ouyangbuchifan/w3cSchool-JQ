@@ -9,7 +9,7 @@
 		var toastSta;
 		var dtd = $.extend(defaultOp, options);
 		var toastDom = new Array();
-		toastDom.push('<div id = "wapToast" style="position:fixed;left:10%;padding:10px;width:80%;color: #fff;background: rgba(0, 0, 0, .75);line-height:1.8;bottom:' + dtd.bottom + ';font-size:' + dtd.size + ';text-align:' + dtd.align + ';">' );
+		toastDom.push('<div id = "wapToast" style="position:fixed;left:10%;z-index:9999;border-radius:3pxpadding:10px;width:80%;color: #fff;background: rgba(0, 0, 0, .75);line-height:1.8;bottom:' + dtd.bottom + ';font-size:' + dtd.size + ';text-align:' + dtd.align + ';">' );
 		toastDom.push('<p>' + dtd.txt + '</p>');
 		toastDom.push('</div>');
 		

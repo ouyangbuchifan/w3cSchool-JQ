@@ -12,6 +12,8 @@
 <body>
 	<div class="container">
 		<p class="lead" id="time">3</p>
+		<p id="mytime"></p>
+		<p id="thisTime"></p>
 	</div>
 
     <script language="javascript" type="text/javascript">
@@ -47,6 +49,18 @@
 	        return nowTimeTxt;
 	    }
 	    console.log( getNowTime() );
+
+
+	    // 获取某段时间
+	    function GetDateStr(AddDayCount) {   
+		   var dd = new Date();  
+		   dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期  
+		   var y = dd.getFullYear();   
+		   var m = (dd.getMonth()+1)<10?"0"+(dd.getMonth()+1):(dd.getMonth()+1);//获取当前月份的日期，不足10补0  
+		   var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0  
+		   return y+"-"+m+"-"+d;   
+		}
+		console.log(GetDateStr(-180))  // 获取半年前时间
     </script>
 </body>
 </html>

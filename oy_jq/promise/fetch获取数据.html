@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fetch</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+	
+		<article class="panel panel-primary">
+			<div class="panel-heading">fetch</div>
+			<div class="panel-body">
+				<p>
+					<a href="https://www.cnblogs.com/libin-1/p/6853677.html">fetch发送数据详解</a>
+				</p>
+				<p>
+					<code>fetch(url,options)</code>
+				</p>
+				<p>
+					<span class="btn btn-primary" id="btn">触发fetch请求</span>
+				</p>
+				<div>
+					<p class="bg-info" id="cont"></p>
+				</div>
+				<p>
+					<span class="btn btn-danger" id="btnErr">触发错误请求</span>
+				</p>
+			</div>
+		</article>
+	</div>
+
+	<script src="../../jquery-1.9.1.min.js"></script>
+    <script>
+        $("#btn").on("click", function(){
+        	fetch("https://api.github.com/users/chriscoyier/repos")
+        		.then(function(result){
+        			console.log(result);
+        			var cont = document.getElementById("cont");
+        			cont.innerHTML = result;
+        		})
+        		.catch(function(err){
+        			console.log(err);
+        		})
+        });
+
+        let content = {username: "jay"};
+        /**
+        // 参数示例
+        fetch("URL",{
+  			method: "get",
+  			headers: {"Content-Type": "application/json"},
+  			body: JSON.stringify(content)
+  		})**/
+
+		//报错情况下，第二个then的data还是会输出
+        $("#btnErr").on("click", function(){
+        	fetch("https://api.github.com/users/chrissycoyier/repos")
+	  		.then(response => response.json())
+	  		.then(data => {
+	  			console.log("data is", data)
+	  		})
+	  		.catch(error => {
+	  			console.log("error is", error)
+	  		})
+        })
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>JQ练习表单</title>
-    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <style>
     .red{color: #f00}
     </style>
@@ -116,6 +116,7 @@
             <!--demo3 添加select 选项的练习-->
             <div class="demo3 clearfix">
                 <form action="" class="form3 form form-horizontal col-md-10">
+                    <h2>表单3</h2>
                     <div class="form-group">
                         <div class="control-label col-sm-10 col-md-3">星期：</div>
                         <div class="col-sm-10 col-md-7">
@@ -129,7 +130,14 @@
                 </form>
             </div>
             <!--end-->
+            <hr>
+            <!-- demo4  -->
+            <div class="demo4 clearfix">
+                <h2>表单4</h2>
+                <p>removeAttr()删除readonly属性</p>
+                <input type="text" id="myInput" class="form-control" readonly value="删除readonly">
             </div>
+            
         </div>
     </div>
 	
@@ -193,7 +201,13 @@
       })
       
         // 表单3
-      $('.demo3 input[type="select"]').remove();
+        $('.demo3 input[type="select"]').remove();
+        
+        // 删除readonly
+        if ($('#myInput').attr('readonly')) {
+            console.log(1);
+            $('#myInput').removeAttr('readonly');
+        };
         
     })
 	</script>

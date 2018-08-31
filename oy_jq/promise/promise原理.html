@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+	<p>
+	<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345008539155e93fc16046d4bb7854943814c4f9dc2000">Promise-廖雪峰</a>
+	</p>
+	<p>
+		promise内函数成功时执行then，失败则跳catch
+	</p>
+	<p>
+		除了串行执行若干异步任务外，Promise还可以并行执行异步任务
+	</p>
+	<p>
+		有些时候，多个异步任务是为了容错。比如，同时向两个URL读取用户的个人信息，只需要获得先返回的结果即可。这种情况下，用Promise.race()实现：
+	</p>
+    <script>
+        function test(resolve, reject) {
+		    var timeOut = Math.random() * 2;
+		    console.log('set timeout to: ' + timeOut + ' seconds.');
+		    setTimeout(function () {
+		        if (timeOut < 1) {
+		            console.log('call resolve()...');
+		            resolve('200 OK');
+		        }
+		        else {
+		            console.log('call reject()...');
+		            reject('timeout in ' + timeOut + ' seconds.');
+		        }
+		    }, timeOut * 1000);
+		}
+		var p1 = new Promise(test);
+		var p2 = p1.then(function(result){
+			console.log("成功");
+			console.log(result);
+		});
+		var p3 = p1.catch(function(result){
+			console.log("失败");
+			console.log(result);
+		})
+
+		console.log("...............Promise.all()...................");
+		//Promise.all([a1,a2])，参数为数组。同时执行完所有任务后，才执行then
+		var a1 = new Promise(function(resolve, reject){
+			setTimeout(resolve, 500, "a1");
+		});
+		var a2 = new Promise(function(resolve, reject){
+			setTimeout(resolve, 600, "a2");
+		});
+		Promise.all([a1,a2]).then(function(results){
+			console.log(results);
+		})
+
+		console.log("...............Promise.race()...................");
+		//Promise.race([a1,a2])，参数为数组。哪个先执行完，就执行哪个
+		var r1 = new Promise(function(resolve, reject){
+			setTimeout(resolve, 500, "r1");
+		});
+		var r2 = new Promise(function(resolve, reject){
+			setTimeout(resolve, 600, "r2");
+		});
+		Promise.race([r1,r2]).then(function(results){
+			console.log("race返回");
+			console.log(results);
+		});
+    </script>
+</body>
+</html>

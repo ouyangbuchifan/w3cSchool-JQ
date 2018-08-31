@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>label里的DOM重复执行click问题</title>
+		<style>
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.list {
+				overflow: hidden;
+			}
+			
+			.hide {}
+			
+			.list li {
+				float: left;
+				margin: 10px;
+				width: 120px;
+				height: 35px;
+				line-height: 35px;
+				border: 1px solid #ccc;
+				text-align: center;
+				position: relative;
+				z-index: 10;
+			}
+			
+			.list li label {
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: relative;
+				z-index: 50;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: rgba(0, 0, 0, 0.1);
+			}
+			
+			.list li .on {
+				background: #f60;
+				color: #fff
+			}
+			
+			#btn {
+				margin: 15px 0 0 10px;
+				background: #0083d3;
+				text-align: center;
+				line-height: 35px;
+				width: 100px;
+				border-radius: 3px;
+				color: #fff;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>点击时给li添加高亮，再点击取消高亮</h2>
+		<div id="mydiv">
+			 
+		</div>
+
+		<div id="btn">结果</div>
+		<script src="jquery-2.1.4.min.js"></script>
+		<script>
+			var mycontent = '<ul class="list"><li><label>男 <input type="checkbox" class="hide chk" name="sex" value="1"></label></li><li><label>女 <input type="checkbox" class="hide chk" name="sex" value="2"></label></li><li><label>未知 <input type="checkbox" class="hide chk" name="sex" value="3"></label></li></ul>';
+			$('#mydiv').append(mycontent);
+
+			var data = [];
+
+			$('.list').on('click', 'label input', function(event) {
+				var that=$(this).parents("label")
+				if(that.hasClass('on')) {
+					that.removeClass('on');
+				} else {
+					that.addClass('on');
+				}
+			});
+
+			// 获取label为on 的input值
+			$('#btn').on('click', function() {
+				var list = $('input[type="checkbox"]:checked');
+				for (var i = 0; i < list.length; i++) {
+					data.push(list[i].value);
+					console.log(data);
+				};
+			});
+		</script>
+	</body>
+
+</html>
