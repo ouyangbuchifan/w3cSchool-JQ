@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>前端分页</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no, email=no">
+	<!--清理缓存解决方案：在调试阶段或者频繁更新的页面加入以下头信息-->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<!--强制竖屏-->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ浏览器强制竖屏-->
+	<meta name="x5-orientation" content="portrait">
+	<!-- UC浏览器强制全屏-->
+	<!--<meta name="full-screen" content="yes">-->
+	<!-- QQ浏览器强制全屏-->
+	<!--<meta name="x5-fullscreen" content="true">-->
+	<!-- UC浏览器应用模式-->
+	<meta name="browsermode" content="application">
+	<!-- QQ浏览器应用模式-->
+	<!--<meta name="x5-page-mode" content="app">-->
+	<link rel="stylesheet" type="text/css" href="http://wap.nx.10086.cn/CustomActivity/resources/activities/201812/buyPhone1812/style/cssreset.css">
+</head>
+<body>
+	<div class="modal_bg"></div>
+	<!--排行榜-->
+	<div class="modal modal_rank">
+		<div class="modal_head">
+			<img src="images/modal_close.png" alt="关闭" class="close" />
+			<img src="images/rank_tit.jpg" alt="排行榜" />
+			<h3>我的排名：35名</h3>
+		</div>
+		<article class="modal_body">
+			<ul class="ran_cont">
+				<li class="item">
+					<span class="item_id">Top1</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+				<li class="item">
+					<span class="item_id">Top2</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+				<li class="item">
+					<span class="item_id">Top3</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+				<li class="item">
+					<span class="item_id">Top4</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+				<li class="item">
+					<span class="item_id">Top5</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+				<li class="item">
+					<span class="item_id">Top6</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+				<li class="item">
+					<span class="item_id">Top7</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+				<li class="item">
+					<span class="item_id">Top8</span>
+					<span class="item_mobile">139****0312</span>
+					<span class="item_fraction">人气值：588</span>
+				</li>
+			</ul>
+			<div class="rank_btn">
+				<span class="prev" data-page="1">上一页</span>
+				<span class="pageNum"><span id="currentPage"></span>/<span id="pageSizes"></span>页</span>
+				<span class="next on" data-page="2">下一页</span>
+			</div>
+		</article>
+	</div>
+	
+	<!--公用弹框-->
+	<div class="modal modal_pop">
+		<h3>温馨提示</h3>
+		<div class="summary"></div>
+		<div class="btn_wp">
+			<span class="btn btn_cancel">取消</span>
+			<a href="javascript:;" class="btn btn_sub">确定</a>
+		</div>
+		<img src="images/modal_close.png" alt="关闭" class="close" />
+	</div>
+	
+	<script src="http://www.nx.10086.cn/ued/static/js/jquery.js"></script>
+	<script src="http://www.nx.10086.cn/ued/static/js/tap/jquery.tap.min.js"></script>
+	<script src="http://www.nx.10086.cn/ued/static/js/wapToast/wapToast.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.modal_bg').show();
+			$('.modal_rank').fadeIn();
+			/**
+			 * 分页
+			 * 前台分页，data初始从后台返回。数据量过大时慎用
+			*/
+			var currentPage = 1; // 当前页
+			var pageSize = 5;  // 每页显示数
+			var pageSizes = 0; // 总页数
+			$('.rank_btn .next,.rank_btn .prev').tap(function(){
+				const pageNum = $(this).data('page');
+				setPage(pageNum)
+			})
+			var data = [
+				{"rank":1,"telnum":"15709566166","num":"330 "},{"rank":2,"telnum":"13995242317","num":"315 "},
+				{"rank":3,"telnum":"15709566166","num":"299 "},{"rank":4,"telnum":"13995242317","num":"288 "},
+				{"rank":5,"telnum":"15709566166","num":"282 "},{"rank":6,"telnum":"13995242317","num":"274 "},
+				{"rank":7,"telnum":"15709566166","num":"271 "},{"rank":8,"telnum":"13995242317","num":"245 "},
+				{"rank":9,"telnum":"15709566166","num":"245 "},{"rank":10,"telnum":"13995242317","num":"240 "},
+				{"rank":11,"telnum":"15709566166","num":"232 "},{"rank":12,"telnum":"13995242317","num":"216 "},
+				{"rank":13,"telnum":"15709566166","num":"153 "},{"rank":14,"telnum":"13995242317","num":"109 "},
+				{"rank":15,"telnum":"15709566166","num":"75 "},{"rank":16,"telnum":"13995242317","num":"72 "},
+				{"rank":17,"telnum":"15709566166","num":"72 "},{"rank":18,"telnum":"13995242317","num":"55 "},
+				{"rank":19,"telnum":"15709566166","num":"53 "},{"rank":20,"telnum":"13995242317","num":"41 "},
+				{"rank":21,"telnum":"15709566166","num":"38 "},{"rank":22,"telnum":"13995242317","num":"37 "},
+				{"rank":23,"telnum":"15709566166","num":"34 "},{"rank":24,"telnum":"13995242317","num":"28 "},
+				{"rank":25,"telnum":"15709566166","num":"27 "},{"rank":26,"telnum":"13995242317","num":"23 "},
+				{"rank":27,"telnum":"15709566166","num":"20 "},{"rank":28,"telnum":"13995242317","num":"19 "},
+				{"rank":29,"telnum":"15709566166","num":"18 "},{"rank":30,"telnum":"13995242317","num":"18 "},
+				{"rank":31,"telnum":"15709566166","num":"17 "},{"rank":32,"telnum":"13995242317","num":"14 "},
+				{"rank":33,"telnum":"15709566166","num":"14 "},{"rank":34,"telnum":"13995242317","num":"13 "},
+				{"rank":35,"telnum":"15709566166","num":"12 "},{"rank":36,"telnum":"13995242317","num":"11 "},
+				{"rank":37,"telnum":"15709566166","num":"11 "},{"rank":38,"telnum":"13995242317","num":"10 "},
+				{"rank":39,"telnum":"15709566166","num":"10 "},{"rank":40,"telnum":"13995242317","num":"10 "},
+				{"rank":41,"telnum":"15709566166","num":"9 "},{"rank":42,"telnum":"13995242317","num":"9 "},
+				{"rank":43,"telnum":"15709566166","num":"8 "},{"rank":44,"telnum":"13995242317","num":"8 "},
+				{"rank":45,"telnum":"15709566166","num":"7 "},{"rank":46,"telnum":"13995242317","num":"7 "},
+				{"rank":47,"telnum":"15709566166","num":"7 "},{"rank":48,"telnum":"13995242317","num":"7 "}
+			]
+			setPage(1);
+			function setPage(pageNum) {
+				if (0 == data.length % pageSize) {
+					pageSizes = data.length / pageSize
+				} else {
+					pageSizes = parseInt(data.length / pageSize) + 1
+				}
+				var currentData = data.slice((pageNum - 1) * pageSize, pageNum * pageSize)
+				setList(currentData, pageNum)
+			}
+			function setList(data, pageNum) {
+				var ulCont = '', prevPage, nextPage;
+				for (const key in data) {
+					ulCont += `<li class="item">
+						<span class="item_id">Top${data[key].rank}</span>
+						<span class="item_mobile">${data[key].telnum}</span>
+						<span class="item_fraction">人气值：${data[key].num}</span>
+					</li>`
+				}
+				$('.ran_cont').html(ulCont);
+				if (1 == pageNum) { // 首页时不可点上一页
+					prevPage = 1;
+					nextPage = 2;
+					$('.rank_btn .prev').removeClass('on');
+				} else if (pageSizes == pageNum) { // 末页时不可点下一页
+					prevPage = pageSizes - 1;
+					nextPage = pageSizes;
+					$('.rank_btn .next').removeClass('on');
+				} else{
+					prevPage = pageNum - 1;
+					nextPage = pageNum + 1;
+					$('.rank_btn .prev, .rank_btn .next').addClass('on');
+				}
+				$('.rank_btn .prev').data('page', prevPage);
+				$('.rank_btn .next').data('page', nextPage);
+				$('#currentPage').text(pageNum);
+				$('#pageSizes').text(pageSizes);
+			}
+		})
+	</script>
+</body>
+</html>
